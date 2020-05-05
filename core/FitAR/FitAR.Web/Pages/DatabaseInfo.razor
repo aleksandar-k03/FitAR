@@ -1,0 +1,127 @@
+﻿@page "/databaseTable/{input}"
+
+@if (!this.HasError)
+{
+	<div class="main-body">
+		<div class="page-wrapper">
+			<div class="page-header">
+				<div class="row align-items-end">
+					<div class="col-lg-8">
+						<div class="page-header-title">
+							<div class="d-inline">
+								<h4>База података</h4>
+								<span>Динамични приказ табела коришћених у апликацији</span>
+							</div>
+						</div>
+					</div>
+					@*<div class="col-lg-4">
+							<div class="page-header-breadcrumb">
+								<ul class="breadcrumb-title">
+									<li class="breadcrumb-item">
+										<a href="index-1.htm"> <i class="feather icon-home"></i> </a>
+									</li>
+									<li class="breadcrumb-item">
+										<a href="#!">Bootstrap Table</a>
+									</li>
+									<li class="breadcrumb-item">
+										<a href="#!">Basic Table</a>
+									</li>
+								</ul>
+							</div>
+						</div>*@
+				</div>
+			</div>
+
+			<div class="page-body">
+				<div class="card">
+					<div class="card-header">
+						<h5>
+							@Table.Name
+						</h5>
+						<span>@Table.Schema</span>
+
+					</div>
+					<div class="card-block table-border-style">
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Име</th>
+										<th>Тип</th>
+										<th>Дефаулт вриједност</th>
+									</tr>
+								</thead>
+								<tbody>
+									@for (int i = 0; i < Table.Columns.Count; i++)
+									{
+										<tr>
+											<th>@i</th>
+											<th>
+												@Table.Columns[i].Name
+											</th>
+											<th>@Table.Columns[i].Type</th>
+											<th>@Table.Columns[i].Default</th>
+										</tr>
+									}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+else
+{
+
+	<div>Postoji greska</div>
+
+}
+
+@code {
+	[Parameter] public string input { get; set; } = string.Empty;
+	[Parameter] public string tableName { get; set; } = string.Empty;
+	[Parameter] public string schemaName { get; set; } = string.Empty;
+	public bool HasError = false;
+	public CachingDatabaseTable Table { get; set; }
+
+	protected override void OnParametersSet()
+	{
+		if (string.IsNullOrEmpty(this.input))
+		{
+			this.HasError = true;
+			return;
+		}
+
+		string[] split = this.input.Split(':');
+		if (split.Length != 2)
+		{
+			this.HasError = true;
+			return;
+		}
+
+		this.schemaName = split[0];
+		this.tableName = split[1];
+
+		foreach (var schema in Caching.CachingManager.DatabaseSchemas)
+			if (schema.Name.Equals(this.schemaName))
+				foreach (var table in schema.Tables)
+					if (table.Name.Equals(this.tableName))
+					{
+						this.Table = table;
+						break;
+					}
+
+		if (Table == null)
+		{
+			this.HasError = true;
+			// error
+		}
+	}
+
+	protected override void OnInitialized()
+	{
+	}
+}

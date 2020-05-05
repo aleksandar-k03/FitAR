@@ -1,0 +1,1277 @@
+{
+  materials: [
+    {
+      name: 'cloth',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: 'cf2ab9a57bb5a3a97fc5c19954efba5d6450381a',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'leather',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: 'cf2ab9a57bb5a3a97fc5c19954efba5d6450381a',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: '4d92ee60be1699d4cc0249b92a67e6400d34e9a7',
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'cloth 2',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: 'cf2ab9a57bb5a3a97fc5c19954efba5d6450381a',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 0,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'cloth metal',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: null,
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'hair (1)',
+      parameters: [
+        {
+          baseColorFactor: [
+            0.005156,
+            0.005156,
+            0.005156,
+            1,
+          ],
+        },
+        {
+          baseColor: null,
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'hair',
+      parameters: [
+        {
+          baseColorFactor: [
+            0.005156,
+            0.005156,
+            0.005156,
+            1,
+          ],
+        },
+        {
+          baseColor: null,
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 0,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'NewMat02',
+      parameters: [
+        {
+          baseColorFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          baseColor: null,
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 0.143564,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'fur03',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: 'a671197ec21b69a7dea27ecbac11d8e8d70f6591',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: 'eb40895880ba13382a1b20a32b95e2b67fd592c0',
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: 'cb991fc2e2627dd17979e2051dd2914ffa936ce4',
+        },
+        {
+          occlusion: 'c33f88ac6f27a4b9e91376b6a1e10c9c807c35fb',
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'fur02',
+      parameters: [
+        {
+          baseColorFactor: [
+            0.01154,
+            0.01154,
+            0.01154,
+            1,
+          ],
+        },
+        {
+          baseColor: '7b499fdd237f15b4d042e80ef87552a9887fefce',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: '2fed9a9d0e6b44d13b86ead02fc8047bf505992d',
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: 'cd85b3b66c974ed49a5b4618f6a7aa22a0033b00',
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'fur01',
+      parameters: [
+        {
+          baseColorFactor: [
+            0.0064770000000000001,
+            0.0064770000000000001,
+            0.0064770000000000001,
+            1,
+          ],
+        },
+        {
+          baseColor: '097e771e52e90ae95250bd3152b84fd068cf54fb',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: '860f369c871e34bf1c0c1829359efdf6d49b29b8',
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: '336373dc8f9e2bfb17dacec0b18848d34eba10d1',
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'head',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: 'ab5aa34965c9556f26670dbe0bd1d5a4e507ec44',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: 'cbad530ddaa4d34da2f2e08316d92b7966ca29c9',
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: 'b1ec3c1dcdf5226928c200e4f46a3468ae13e995',
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'eyeball',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: '955246bde65d6ecebd3ebf3b5357fdd86611c917',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: '009b61494462fb73666a6b5a188c760870ada491',
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 0,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'eyelashes',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: 'd45eb84b8a802cac283f93652f1d18faa2e88bf8',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: '65aad0097e0069086a3851491fe435010ca0c000',
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 0.71287100000000003,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'Default',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: null,
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 0.29999999999999999,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'body',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: '6185e9bc4cedd811b6c8ffbb8b428338e9d805ad',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 0,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: 'b1ec3c1dcdf5226928c200e4f46a3468ae13e995',
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'cloth_pendant',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: null,
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+    {
+      name: 'dress',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: '40d2de7d20f135a007562fd9cf9af9c877eb3003',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 1,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/yen.glb',
+    name: 'yen',
+    recenter: 'root',
+    scale: 0.0088620000000000001,
+  },
+  samplers: [
+    {
+      name: '40d2de7d20f135a007562fd9cf9af9c877eb3003',
+      pipeline_name: '*28',
+    },
+    {
+      name: 'a671197ec21b69a7dea27ecbac11d8e8d70f6591',
+      pipeline_name: '*8',
+    },
+    {
+      name: 'cbad530ddaa4d34da2f2e08316d92b7966ca29c9',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: '*20',
+    },
+    {
+      name: 'cf2ab9a57bb5a3a97fc5c19954efba5d6450381a',
+      pipeline_name: '*5',
+    },
+    {
+      name: '955246bde65d6ecebd3ebf3b5357fdd86611c917',
+      pipeline_name: '*21',
+    },
+    {
+      name: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*7',
+    },
+    {
+      name: '009b61494462fb73666a6b5a188c760870ada491',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: '*22',
+    },
+    {
+      name: 'cf2ab9a57bb5a3a97fc5c19954efba5d6450381a',
+      pipeline_name: '*5',
+    },
+    {
+      name: '65aad0097e0069086a3851491fe435010ca0c000',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: '*24',
+    },
+    {
+      name: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*7',
+    },
+    {
+      name: 'd45eb84b8a802cac283f93652f1d18faa2e88bf8',
+      pipeline_name: '*23',
+    },
+    {
+      name: '4d92ee60be1699d4cc0249b92a67e6400d34e9a7',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: '*3',
+    },
+    {
+      name: '6185e9bc4cedd811b6c8ffbb8b428338e9d805ad',
+      pipeline_name: '*25',
+    },
+    {
+      name: 'cf2ab9a57bb5a3a97fc5c19954efba5d6450381a',
+      pipeline_name: '*5',
+    },
+    {
+      name: 'b1ec3c1dcdf5226928c200e4f46a3468ae13e995',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*19',
+    },
+    {
+      name: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*7',
+    },
+    {
+      name: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*7',
+    },
+    {
+      name: 'd3ca1149ed5c170aee16ce60108774fe52fa0fa8',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*7',
+    },
+    {
+      name: 'c33f88ac6f27a4b9e91376b6a1e10c9c807c35fb',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*11',
+    },
+    {
+      name: 'cb991fc2e2627dd17979e2051dd2914ffa936ce4',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*9',
+    },
+    {
+      name: 'eb40895880ba13382a1b20a32b95e2b67fd592c0',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: '*10',
+    },
+    {
+      name: '7b499fdd237f15b4d042e80ef87552a9887fefce',
+      pipeline_name: '*12',
+    },
+    {
+      name: 'cd85b3b66c974ed49a5b4618f6a7aa22a0033b00',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*13',
+    },
+    {
+      name: '2fed9a9d0e6b44d13b86ead02fc8047bf505992d',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: '*14',
+    },
+    {
+      name: '097e771e52e90ae95250bd3152b84fd068cf54fb',
+      pipeline_name: '*15',
+    },
+    {
+      name: '336373dc8f9e2bfb17dacec0b18848d34eba10d1',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*16',
+    },
+    {
+      name: '860f369c871e34bf1c0c1829359efdf6d49b29b8',
+      params: {
+        usage_type: 'Normal',
+      },
+      pipeline_name: '*17',
+    },
+    {
+      name: 'ab5aa34965c9556f26670dbe0bd1d5a4e507ec44',
+      pipeline_name: '*18',
+    },
+    {
+      name: 'b1ec3c1dcdf5226928c200e4f46a3468ae13e995',
+      params: {
+        usage_type: 'Data',
+      },
+      pipeline_name: '*19',
+    },
+  ],
+  version: '0.54:2',
+}

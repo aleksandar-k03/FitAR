@@ -1,0 +1,9 @@
+D:\git\FitAr\core\FitAR\FitAR.Sockets\bin\Debug\netcoreapp3.1\FitAR.Sockets.deps.json
+D:\git\FitAr\core\FitAR\FitAR.Sockets\bin\Debug\netcoreapp3.1\FitAR.Sockets.dll
+D:\git\FitAr\core\FitAR\FitAR.Sockets\bin\Debug\netcoreapp3.1\FitAR.Sockets.pdb
+D:\git\FitAr\core\FitAR\FitAR.Sockets\obj\Debug\netcoreapp3.1\FitAR.Sockets.csprojAssemblyReference.cache
+D:\git\FitAr\core\FitAR\FitAR.Sockets\obj\Debug\netcoreapp3.1\FitAR.Sockets.csproj.CoreCompileInputs.cache
+D:\git\FitAr\core\FitAR\FitAR.Sockets\obj\Debug\netcoreapp3.1\FitAR.Sockets.AssemblyInfoInputs.cache
+D:\git\FitAr\core\FitAR\FitAR.Sockets\obj\Debug\netcoreapp3.1\FitAR.Sockets.AssemblyInfo.cs
+D:\git\FitAr\core\FitAR\FitAR.Sockets\obj\Debug\netcoreapp3.1\FitAR.Sockets.dll
+D:\git\FitAr\core\FitAR\FitAR.Sockets\obj\Debug\netcoreapp3.1\FitAR.Sockets.pdb

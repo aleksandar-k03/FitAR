@@ -1,0 +1,122 @@
+﻿@page "/addArticle/{fallbackId}"
+
+
+<div class="main-body">
+	<div class="page-wrapper">
+		<!-- Page-header start -->
+		<div class="page-header">
+			<div class="row align-items-end">
+				<div class="col-lg-8">
+					<div class="page-header-title">
+						<div class="d-inline">
+							<h4>Додавање</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		@if (!HasError)
+		{
+			<div class="page-body">
+				<div class="row">
+					<div class="col-sm-12">
+
+						<div class="card">
+							<div class="card-block">
+								<div class="form-group row">
+									<div class="col-sm-12">
+										<input type="text" placeholder="Naslov" class="form-control" @bind="Naslov">
+									</div>
+								</div>
+								<div id="content" class="ck"></div>
+							</div>
+							<div class="card-block">
+								@if (this.Done == false)
+								{
+									<button class="btn btn-primary" @onclick="OnSubmit">Sacuvaj</button>
+									<button class="btn btn-primary" @onclick="OnSubmit">Izbrisi</button>
+								}
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		}
+		else
+		{
+			<strong>Greska!</strong>
+		}
+
+	</div>
+</div>
+
+@code{
+	@inject NavigationManager NavigationManager
+	@inject IJSRuntime JSRuntime
+
+	[Parameter] public string fallbackId { get; set; }
+	public bool HasError = false;
+	public bool Done = false;
+	public CachingArticles ArticleCache { get; set; } = null;
+	public ArticleDM ArticleModel { get; set; } = null;
+	public string Naslov { get; set; } = string.Empty;
+
+	protected override void OnParametersSet()
+	{
+		int fallbackID;
+		if (!int.TryParse(this.fallbackId, out fallbackID))
+		{
+			this.HasError = true;
+			return;
+		}
+
+		this.ArticleCache = (from a in CachingManager.IRCArticles where a.ID == fallbackID select a).FirstOrDefault();
+		if (this.ArticleCache == null)
+		{
+			this.HasError = true;
+			return;
+		}
+
+		this.ArticleModel = ARDirect.Instance.Query<ArticleDM>().Where("[id]={0}", fallbackID).LoadSingle();
+		if (this.ArticleModel == null)
+		{
+			this.HasError = true;
+			return;
+		}
+	}
+
+	protected override Task OnInitializedAsync()
+	{
+		return base.OnInitializedAsync();
+	}
+
+	protected async void OnSubmit()
+	{
+		string content = await JSRuntime.InvokeAsync<string>("CKCustomEditor.getData");
+		ArticleDM newElem = new ArticleDM()
+		{
+			fallbackid = this.ArticleModel.ID.Value,
+			typeid = this.ArticleModel.typeid,
+			title = this.Naslov,
+			html = content,
+			updated = DateTime.Now,
+			created = DateTime.Now
+		};
+		newElem.Insert();
+
+		ArticleCache.Columns.Add(new CachingArticles()
+		{
+			ID = newElem.ID.Value,
+			Title = Naslov
+		});
+
+		this.StateHasChanged();
+		NavigationManager.NavigateTo("/article/" + newElem.ID.Value);
+
+		this.Done = true;
+	}
+
+
+}

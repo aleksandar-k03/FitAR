@@ -1,0 +1,46 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="pcoded-navigatio-lavel">Интеракција човјек-рачунар</div>
+<ul class="pcoded-item pcoded-left-item">
+	@foreach (var article in Caching.CachingManager.IRCArticles)
+	{
+		<li class="pcoded-hasmenu_a ">
+			<div class="aopen">
+				<span class="pcoded-micon"><i class="feather icon-file-plus"></i></span>
+				<span class="pcoded-mtext">@article.Title</span>
+			</div>
+			<ul class="pcoded-submenu_a">
+				@if (this.Context.IsLoggedIn && this.Context.Client.isAdmin)
+				{
+					<li class=" ">
+						<a href="/addArticle/@article.ID">
+							<span class="pcoded-mtext">Додај</span>
+						</a>
+					</li>
+				}
+				@foreach (var subartc in article.Columns)
+				{
+					var url = "/article/" + subartc.ID;
+					<li class=" ">
+						<a href="@url">
+							<span class="pcoded-mtext">@subartc.Title</span>
+						</a>
+					</li>
+				}
+			</ul>
+		</li>
+	}
+</ul>
+
+@code{
+
+	@inherits ARPage
+	@inject ARScope Scope;
+	@inject ARContext Context;
+
+	protected override void OnInitialized()
+	{
+		this.OnInitializedAsync();
+		this.ScopeWith(Scope, ARScope.ScopeGroup.ICR, ARScope.ScopeComponent.MS_ICR);
+	}
+}

@@ -1,0 +1,13 @@
+﻿
+<div class="pcoded-navigatio-lavel">АПИ</div>
+<ul class="pcoded-item pcoded-left-item">
+	@foreach (var api in Caching.CachingManager.ApiControllers)
+	{
+		<li class="">
+			<a href="/_api/@api.ID">
+				<span class="pcoded-micon"><i class="feather icon-file-plus"></i></span>
+				<span class="pcoded-mtext">@api.Name</span>
+			</a>
+		</li>
+	}
+</ul>

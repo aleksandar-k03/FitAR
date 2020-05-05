@@ -1,0 +1,67 @@
+@inherits FitAR.Web.Code.ARLayoutBase
+@inject IJSRuntime JSRuntime
+<base href="/" />
+
+
+@Body
+
+
+@code{
+	@implements IDisposable
+	@inject IJSRuntime JSRuntime
+	@inject ARScope ARScope
+	protected CancellationTokenSource src = new CancellationTokenSource();
+	protected ClientWebSocket Socket;
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		await JSRuntime.InvokeVoidAsync("onReady", firstRender);
+	}
+
+	public override void OnDispose()
+	{
+		try
+		{
+			if(this.Socket != null)
+				this.Socket.CloseOutputAsync(WebSocketCloseStatus.NormalClosure, "", src.Token);
+		}
+		catch { }
+		src.Cancel();
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		base.OnInitializedAsync();
+
+		Task socketTask = Task.Run(async () =>
+		{
+			var buffer = new byte[10240];
+			this.Socket= new ClientWebSocket();
+			await Socket.ConnectAsync(new Uri("wss://localhost:5001/ws_dashboard"), src.Token);
+			for (; ; )
+			{
+				await Socket.ReceiveAsync(new ArraySegment<byte>(buffer), src.Token);
+				string content = System.Text.Encoding.UTF8.GetString(buffer);
+				Console.WriteLine("Imamo odgovor na dashboard: " + content);
+				buffer = new byte[1024];
+
+				try
+				{
+					var data = JsonConvert.DeserializeObject<DashboardModel>(content);
+					if (!string.IsNullOrEmpty(data.Text))
+						await JSRuntime.InvokeVoidAsync(data.Function.ToString(),  data.Text);
+
+					if (data.RequireReload)
+						ARScope.NotifyStateChange(ARScope.ScopeGroup.Socket);
+				}
+				catch(Exception e)
+				{
+					Console.WriteLine("Greska u konvertovanju objekta " + e.ToString());
+				}
+
+			}
+		});
+	}
+
+
+}

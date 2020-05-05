@@ -1,0 +1,26 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="pcoded-navigatio-lavel">База података</div>
+<ul class="pcoded-item pcoded-left-item">
+	@foreach (var schema in Caching.CachingManager.DatabaseSchemas)
+	{
+		<li class="pcoded-hasmenu_a ">
+			<div class="aopen">
+				<span class="pcoded-micon"><i class="feather icon-file-plus"></i></span>
+				<span class="pcoded-mtext">@schema.Name</span>
+			</div>
+			<ul class="pcoded-submenu_a">
+				@foreach (var table in schema.Tables)
+				{
+					var url = $"/databaseTable/{schema.Name}:{table.Name}";
+					<li class=" ">
+						<a href="@url">
+							<span class="pcoded-mtext">@table.Name</span>
+						</a>
+					</li>
+				}
+			</ul>
+		</li>
+	}
+</ul>
+

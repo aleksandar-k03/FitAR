@@ -1,0 +1,93 @@
+﻿@page "/"
+@namespace FitAR.Web.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<base href="/" />
+	<title>Александар Конатар (32/19п) - Завршни пројекат</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="~/bower/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="~/assets/icon/feather/css/feather.css">
+	<link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="~/assets/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="~/assets/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="~/assets/pages/notification/notification.css">
+	<link rel="stylesheet" type="text/css" href="~/bower/animate.css/css/animate.css">
+
+</head>
+
+<body>
+
+	<component type="typeof(FitAR.Web.Shared.ThemeLoader)" render-mode="ServerPrerendered" />
+
+	<!-- Pre-loader end -->
+	<div id="pcoded" class="pcoded">
+		<div class="pcoded-overlay-box"></div>
+		<div class="pcoded-container navbar-wrapper">
+
+			<component type="typeof(FitAR.Web.Shared._Header)" render-mode="ServerPrerendered" />
+
+			<!-- Sidebar inner chat end-->
+			<div class="pcoded-main-container">
+				<div class="pcoded-wrapper">
+					<component type="typeof(FitAR.Web.Shared._Menu)" render-mode="ServerPrerendered" />
+					<div class="pcoded-content">
+						<div class="pcoded-inner-content">
+
+							<app>
+								<component type="typeof(App)" render-mode="ServerPrerendered" />
+							</app>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="_framework/blazor.server.js"></script>
+<script type="text/javascript" src="~/bower/jquery/js/jquery.min.js"></script>
+<script type="text/javascript" src="~/bower/jquery-ui/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="~/bower/popper.js/js/popper.min.js"></script>
+<script type="text/javascript" src="~/bower/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/bower/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="~/bower/modernizr/js/modernizr.js"></script>
+<script type="text/javascript" src="~/bower/chart.js/js/Chart.js"></script>
+<script src="~/assets/pages/widget/amchart/amcharts.js"></script>
+<script src="~/assets/pages/widget/amchart/serial.js"></script>
+<script src="~/assets/pages/widget/amchart/light.js"></script>
+<script src="~/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="~/assets/js/SmoothScroll.js"></script>
+<script src="~/assets/js/pcoded.min.js"></script>
+<script src="~/assets/js/vartical-layout.min.js"></script>
+<script src="~/assets/js/ckuploader.js"></script>
+<script src="~/assets/js/ckeditor.js"></script>
+<script type="text/javascript" src="~/assets/js/bootstrap-growl.min.js"></script>
+<script type="text/javascript" src="~/assets/pages/notification/notification.js"></script>
+<script type="text/javascript" src="~/assets/js/custom.js"></script>
+<script type="text/javascript" src="~/assets/js/script.js"></script>
+<script>
+	function onReady(firstRender) {
+		if (firstRender) {
+			initMenu();
+			scriptReady();
+			setCustom();
+		}
+
+		CKCustomEditor.init();
+	}
+</script>
+</html>
+

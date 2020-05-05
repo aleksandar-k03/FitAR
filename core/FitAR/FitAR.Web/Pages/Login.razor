@@ -1,0 +1,122 @@
+﻿@page "/login"
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<!-- Authentication card start -->
+
+			<form class="md-float-material form-material">
+				<div class="auth-box card">
+					<div class="card-block">
+						<div class="row m-b-20">
+							<div class="col-md-12">
+								<h3 class="text-center">Логин</h3>
+							</div>
+						</div>
+						<div class="form-group form-primary">
+							<input type="text" name="email" class="form-control" required="" placeholder="Ваше корисничко име" @bind="username">
+							<span class="form-bar"></span>
+						</div>
+						<div class="form-group form-primary">
+							<input type="password" name="password" class="form-control" required="" placeholder="Ваша шифра" @bind="password">
+							<span class="form-bar"></span>
+						</div>
+						<div class="row m-t-30">
+							<div class="col-md-12">
+								<button type="button" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20" @onclick="OnClick">Потврди</button>
+							</div>
+							@if (!string.IsNullOrEmpty(this.errorMessage))
+							{
+								<div class="col-md-12" style="color:red">
+									@this.errorMessage
+								</div>
+							}
+						</div>
+						<hr>
+					</div>
+				</div>
+			</form>
+			<!-- end of form -->
+		</div>
+		<!-- end of col-sm-12 -->
+	</div>
+	<!-- end of row -->
+</div>
+
+@code {
+
+	@inherits ARPage
+	@inject IJSRuntime JSRuntime
+	@inject NavigationManager NavigationManager
+	@inject ARContext Context
+	@inject ARScope Scope;
+	@inject FitAR.Sockets.DashboardSocketHandler Socket
+
+	protected override void OnInitialized()
+	{
+		this.OnInitializedAsync();
+		this.ScopeWith(Scope, ARScope.ScopeComponent.Login);
+	}
+
+	string errorMessage = "";
+	string username = "";
+	string password = "";
+
+	private async void OnClick()
+	{
+		this.errorMessage = "";
+		if (string.IsNullOrEmpty(this.username))
+		{
+			this.errorMessage = "Морате унијети корисничко име";
+			this.StateHasChanged();
+			return;
+		}
+		if (string.IsNullOrEmpty(this.password))
+		{
+			this.errorMessage = "Морате унијети шифру";
+			this.StateHasChanged();
+			return;
+		}
+
+		ClientDM client = await ARDirect.Instance.Query<ClientDM>().Where("username={0}", this.username).LoadSingleAsync();
+		if (client == null)
+		{
+			this.errorMessage = "Кориснички налог са овим именом не постоји";
+			this.StateHasChanged();
+			return;
+		}
+
+		if (!Direct.Helpers.DirectPassword.Verify(this.password, client.password))
+		{
+			this.errorMessage = "Погрешна шифра";
+			this.StateHasChanged();
+			return;
+		}
+
+		ClientSessionDM session = new ClientSessionDM()
+		{
+			clientid = client.ID.Value
+		};
+		session.InsertAsync();
+
+		await this.WriteCookieAsync("wauth", client.ID.Value.ToString());
+		await Socket.SendToAll(new DashboardModel()
+		{
+			Function = DashboardModel.FunctionTypes.notifySuccess,
+			Text = $"Korisnik '{client.username}' se ulogovao"
+		});
+
+		if(!CachingManager.LoggedInDashboard.Contains(client.clientid.ToString()))
+			CachingManager.LoggedInDashboard.Add(client.clientid.ToString());
+
+		this.StateHasChanged();
+		Scope.NotifyStateChange();
+		NavigationManager.NavigateTo("/");
+	}
+
+	public async Task WriteCookieAsync(string name, string value, int days = 365)
+	{
+		var test = await JSRuntime.InvokeAsync<object>("blazorExtensions.WriteCookie", name, value, days);
+	}
+
+}

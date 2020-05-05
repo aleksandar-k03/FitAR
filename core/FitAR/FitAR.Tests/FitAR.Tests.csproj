@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Direct\Direct.RedisDistribution\Direct.RedisDistribution.csproj" />
+    <ProjectReference Include="..\..\..\..\Direct\Direct\Direct.csproj" />
+    <ProjectReference Include="..\FitAR.API\FitAR.Web.API.csproj" />
+    <ProjectReference Include="..\FitAR.Database\FitAR.Database.csproj" />
+    <ProjectReference Include="..\FitAR.Web.Caching\FitAR.Web.Caching.csproj" />
+  </ItemGroup>
+
+</Project>
