@@ -28,21 +28,6 @@ class ActivityMain : ActivityBase(){
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_main);
 
-        val arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as ArFragment;
-        this.arManager = ARActivityManager(this, arFragment);
-
-        // provjera da li uredjaj moze da prikaze AR
-        if(arManager.checkIsSupportedDeviceOrFinish(this) ==  false){
-            //  izbaci AR fragment jer nam ocigledno ne treba
-            supportFragmentManager.beginTransaction().remove(arFragment).commit()
-
-            /*val intent = Intent(this, ActivityPlayground::class.java)
-            startActivity(intent);
-            this.finish();*/
-        }
-        else{
-            this.arManager.initiateOnTap();
-        }
 
     }
 

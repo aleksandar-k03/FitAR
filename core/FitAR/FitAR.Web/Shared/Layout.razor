@@ -37,7 +37,10 @@
 		{
 			var buffer = new byte[10240];
 			this.Socket= new ClientWebSocket();
-			await Socket.ConnectAsync(new Uri("wss://localhost:5001/ws_dashboard"), src.Token);
+			string url = Utils.IsDebug() ? "wss://localhost:5001/ws_dashboard" : "wss://ccmonkeysbot-fitar.azurewebsites.net/ws_dashboard";
+
+
+			await Socket.ConnectAsync(new Uri(url), src.Token);
 			for (; ; )
 			{
 				await Socket.ReceiveAsync(new ArraySegment<byte>(buffer), src.Token);

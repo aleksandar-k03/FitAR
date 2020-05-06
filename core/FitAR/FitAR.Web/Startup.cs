@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Blazor.Browser.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -31,7 +32,7 @@ namespace FitAR.Web
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddRazorPages().AddRazorRuntimeCompilation();
-      services.AddServerSideBlazor();
+      services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; });
       services.AddControllersWithViews().AddRazorRuntimeCompilation();
       services.AddMvc().AddRazorRuntimeCompilation();
       services.AddMvc()
@@ -54,6 +55,7 @@ namespace FitAR.Web
 
 
       // HttpContextAccessor
+      services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
       services.AddHttpContextAccessor();
       services.AddScoped<ARContext>();
       services.AddScoped<ARScope>();

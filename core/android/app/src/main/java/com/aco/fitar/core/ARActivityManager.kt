@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Build.VERSION_CODES
 import android.widget.Toast
 import com.aco.fitar.ActivityMain
+import com.aco.fitar.ActivityPlayground
 import com.aco.fitar.R
 import com.google.ar.core.Anchor
 import com.google.ar.sceneform.AnchorNode
@@ -16,9 +17,8 @@ import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 
 
-class ARActivityManager(inputActivity: ActivityMain, arFragment: ArFragment?) {
+class ARActivityManager(arFragment: ArFragment?) {
 
-    private var activity:ActivityMain = inputActivity;
     private var arFragment:ArFragment? = arFragment
 
     init {
