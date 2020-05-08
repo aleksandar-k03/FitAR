@@ -29,7 +29,7 @@ abstract class ControllerBase<TModel, TOutput>
         where TOutput : ModelResponseBase
     {
         val gson = Gson()
-        Log.d("ControllerBase", "Calling action ${this.endpoint}/@${action}, with data:${gson.toJson(model)}")
+        Log.d("ControllerBase", "Calling action ${ApiManager.endpoint}${this.endpoint}/${action}, with data:${gson.toJson(model)}")
         var net = AndroidNetworking.post(ApiManager.endpoint + this.endpoint + "/" + action);
         net.addBodyParameter(model);
         val json = Json(JsonConfiguration.Stable)

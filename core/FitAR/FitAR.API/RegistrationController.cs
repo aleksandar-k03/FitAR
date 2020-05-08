@@ -6,6 +6,7 @@ using FitAR.Sockets;
 using FitAR.Web.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +21,7 @@ namespace FitAR.Web.API
   {
 
     public RegistrationController() : base() { }
+    [ActivatorUtilitiesConstructor] 
     public RegistrationController(DashboardSocketHandler socket) : base(socket) { }
 
     [HttpPost]

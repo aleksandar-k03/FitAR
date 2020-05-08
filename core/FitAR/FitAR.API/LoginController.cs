@@ -5,6 +5,7 @@ using FitAR.Database;
 using FitAR.Sockets;
 using FitAR.Web.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,13 +21,13 @@ namespace FitAR.Web.API
   {
 
     public LoginController():base() { }
-    public LoginController(DashboardSocketHandler socket) : base(socket) { }
+    [ActivatorUtilitiesConstructor] public LoginController(DashboardSocketHandler socket) : base(socket) { }
 
     [HttpPost]
     [Descriptor(Name = "Логин Контролер", 
       Input = typeof(LoginInputModel),
       Output = typeof(LoginModel),
-      Description = @"")]
+      Description = @"")] 
     public async Task<LoginModel> Index(LoginInputModel input)
     {
       var result = new LoginModel();
