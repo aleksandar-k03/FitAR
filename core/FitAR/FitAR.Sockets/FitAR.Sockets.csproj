@@ -10,4 +10,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Direct\Direct\Direct.csproj" />
+    <ProjectReference Include="..\FitAR.Database\FitAR.Database.csproj" />
+  </ItemGroup>
+
 </Project>

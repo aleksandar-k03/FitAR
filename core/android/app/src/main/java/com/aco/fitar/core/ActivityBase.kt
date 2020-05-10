@@ -5,5 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 abstract class ActivityBase : AppCompatActivity(){
 
 
+    init {
+    }
 
 }

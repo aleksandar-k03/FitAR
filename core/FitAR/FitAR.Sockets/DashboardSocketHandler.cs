@@ -10,7 +10,14 @@ namespace FitAR.Sockets
 {
   public class DashboardSocketHandler : WebSocketHandler
   {
+    public static DashboardSocketHandler Current = null;
     public DashboardSocketHandler(ConnectionManager webSocketConnectionManager) : base(webSocketConnectionManager) { }
+
+    public override void OnConstructor()
+    {
+      base.OnConstructor();
+      Current = this;
+    }
 
     public override string CreateId(HttpContext context)
       => Guid.NewGuid().ToString();

@@ -25,6 +25,9 @@ namespace FitAR.Sockets
         return;
 
       string id = _webSocketHandler.CreateId(context);
+      if (string.IsNullOrEmpty(id))
+        return;
+
       var socket = await context.WebSockets.AcceptWebSocketAsync();
       await _webSocketHandler.OnConnected(id, socket);
 

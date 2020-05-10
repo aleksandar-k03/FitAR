@@ -14,9 +14,9 @@ D:\git\FitAr\core\FitAR\FitAR.API\bin\Debug\netcoreapp3.1\FitAR.Sockets.pdb
 D:\git\FitAr\core\FitAR\FitAR.API\bin\Debug\netcoreapp3.1\Direct.pdb
 D:\git\FitAr\core\FitAR\FitAR.API\bin\Debug\netcoreapp3.1\Direct.RedisDistribution.pdb
 D:\git\FitAr\core\FitAR\FitAR.API\obj\Debug\netcoreapp3.1\FitAR.Web.API.csprojAssemblyReference.cache
-D:\git\FitAr\core\FitAR\FitAR.API\obj\Debug\netcoreapp3.1\FitAR.Web.API.csproj.CoreCompileInputs.cache
 D:\git\FitAr\core\FitAR\FitAR.API\obj\Debug\netcoreapp3.1\FitAR.Web.API.AssemblyInfoInputs.cache
 D:\git\FitAr\core\FitAR\FitAR.API\obj\Debug\netcoreapp3.1\FitAR.Web.API.AssemblyInfo.cs
 D:\git\FitAr\core\FitAR\FitAR.API\obj\Debug\netcoreapp3.1\FitAR.Web.API.csproj.CopyComplete
 D:\git\FitAr\core\FitAR\FitAR.API\obj\Debug\netcoreapp3.1\FitAR.Web.API.dll
 D:\git\FitAr\core\FitAR\FitAR.API\obj\Debug\netcoreapp3.1\FitAR.Web.API.pdb
+D:\git\FitAr\core\FitAR\FitAR.API\obj\Debug\netcoreapp3.1\FitAR.Web.API.csproj.CoreCompileInputs.cache

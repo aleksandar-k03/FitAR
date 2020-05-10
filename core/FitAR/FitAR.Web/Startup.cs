@@ -87,7 +87,9 @@ namespace FitAR.Web
 
       var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
       var serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
+
       app.MapWebSocketManager("/ws_dashboard", serviceProvider.GetService<DashboardSocketHandler>());
+      app.MapWebSocketManager("/ws_droid", serviceProvider.GetService<AndroidSocketManager>());
 
       app.UseEndpoints(endpoints =>
       {

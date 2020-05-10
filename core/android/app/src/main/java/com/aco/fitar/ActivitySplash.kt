@@ -6,9 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.ImageView
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.view.ViewCompat
 import com.aco.fitar.api.controllers.LoginController
+import com.aco.fitar.api.models.LoginModel
 import com.aco.fitar.api.models.LoginResponse
+import com.aco.fitar.core.ModelPreferencesManager
 
 class ActivitySplash : AppCompatActivity() {
 
@@ -19,20 +20,40 @@ class ActivitySplash : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         logoImg = this.findViewById(R.id.splash_logo) as ImageView;
+        var loginInformations = ModelPreferencesManager.get<LoginResponse>("login");
 
         var a:LoginController = LoginController()
 
         var hander = Handler();
         hander.postDelayed(Runnable {
 
-            val intent = Intent(this, ActivityLogin::class.java)
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, this.logoImg,
-                "splash_logo"
-            )
-            startActivity(intent, options.toBundle());
+            if(loginInformations == null)
+                this.gotoLogin();
+            else
+            {
+                var passwordCache:String = loginInformations.password
+                LoginController().call(loginInformations.username, loginInformations.password, { loginResponse ->
+                    if(loginResponse.hasError)
+                    {
+                        this.gotoLogin();
+                        return@call;
+                    }
+
+                    loginResponse.password = passwordCache;
+                    ModelPreferencesManager.put(loginResponse, "login");
+                    val intent = Intent(this, ActivityMain::class.java)
+                    startActivity(intent);
+                })
+            }
 
         }, 800);
+    }
 
-
+    public fun gotoLogin(){
+        val intent = Intent(this, ActivityLogin::class.java)
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, this.logoImg,
+            "splash_logo"
+        )
+        startActivity(intent, options.toBundle());
     }
 }

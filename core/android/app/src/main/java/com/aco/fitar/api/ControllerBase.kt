@@ -1,6 +1,7 @@
 package com.aco.fitar.api
 
 import android.util.Log
+import com.aco.fitar.sockets.SocketHttpsFix
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
@@ -31,6 +32,7 @@ abstract class ControllerBase<TModel, TOutput>
         val gson = Gson()
         Log.d("ControllerBase", "Calling action ${ApiManager.endpoint}${this.endpoint}/${action}, with data:${gson.toJson(model)}")
         var net = AndroidNetworking.post(ApiManager.endpoint + this.endpoint + "/" + action);
+        net.setOkHttpClient(SocketHttpsFix.getUnsafeOkHttpClient().build())
         net.addBodyParameter(model);
         val json = Json(JsonConfiguration.Stable)
 

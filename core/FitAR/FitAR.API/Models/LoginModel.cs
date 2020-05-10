@@ -16,5 +16,10 @@ namespace FitAR.Web.API.Models
     public int clientID { get; set; }
     public string session { get; set; }
 
+    public string username { get; set; }
+    public string firstName { get; set; }
+    public string lastName { get; set; }
+    public string profilePic { get; set; }
+
   }
 }

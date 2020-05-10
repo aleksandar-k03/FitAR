@@ -206,6 +206,10 @@
               "target": "Package",
               "version": "[2.1.11, )"
             },
+            "Microsoft.IdentityModel.Clients.ActiveDirectory": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "WindowsAzure.Storage": {
               "target": "Package",
               "version": "[9.3.3, )"
@@ -311,7 +315,14 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\git\\Direct\\Direct\\Direct.csproj": {
+                "projectPath": "D:\\git\\Direct\\Direct\\Direct.csproj"
+              },
+              "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
+                "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

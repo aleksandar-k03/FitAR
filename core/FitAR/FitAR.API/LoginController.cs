@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,6 +60,10 @@ namespace FitAR.Web.API
 
       result.clientID = client.ID.Value;
       result.session = session.clientSessionGuid.ToString();
+      result.username = client.username;
+      result.firstName = client.firstName;
+      result.lastName = client.lastName;
+      result.profilePic = client.profilePic;
 
       this.Notify(Sockets.Dashboard.Models.DashboardModel.FunctionTypes.notifySuccess, $"Корисник '${client.username}' се улоговао!");
 

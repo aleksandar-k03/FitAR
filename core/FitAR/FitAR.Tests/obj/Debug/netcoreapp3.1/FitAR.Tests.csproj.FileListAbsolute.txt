@@ -102,3 +102,4 @@ D:\git\FitAr\core\FitAR\FitAR.Tests\obj\Debug\netcoreapp3.1\FitAR.Tests.csproj.C
 D:\git\FitAr\core\FitAR\FitAR.Tests\obj\Debug\netcoreapp3.1\FitAR.Tests.dll
 D:\git\FitAr\core\FitAR\FitAR.Tests\obj\Debug\netcoreapp3.1\FitAR.Tests.pdb
 D:\git\FitAr\core\FitAR\FitAR.Tests\obj\Debug\netcoreapp3.1\FitAR.Tests.genruntimeconfig.cache
+D:\git\FitAr\core\FitAR\FitAR.Tests\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.dll

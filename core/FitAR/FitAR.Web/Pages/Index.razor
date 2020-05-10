@@ -11,8 +11,8 @@
 						<div class="card-block">
 							<div class="row align-items-end">
 								<div class="col-8">
-									<h4 class="text-white">@this.Socket.UkupanBrojKonekcija</h4>
-									<h6 class="text-white m-b-0">Тренутни број корисника</h6>
+									<h4 class="text-white">@this.Socket.NumberOfConnections</h4>
+									<h6 class="text-white m-b-0">Тренутни број корисника на платформи</h6>
 								</div>
 								<div class="col-4 text-right">
 									<canvas id="update-chart-1" height="50"></canvas>
@@ -26,8 +26,8 @@
 						<div class="card-block">
 							<div class="row align-items-end">
 								<div class="col-8">
-									<h4 class="text-white">290+</h4>
-									<h6 class="text-white m-b-0">Page Views</h6>
+									<h4 class="text-white">@this.AndroidSocket.NumberOfConnections</h4>
+									<h6 class="text-white m-b-0">Тренутни број андроид корисника</h6>
 								</div>
 								<div class="col-4 text-right">
 									<canvas id="update-chart-2" height="50"></canvas>
@@ -108,6 +108,7 @@
 @code{
 	@inherits ARPage
 	@inject FitAR.Sockets.DashboardSocketHandler Socket;
+	@inject FitAR.Sockets.AndroidSocketManager AndroidSocket;
 	@inject IJSRuntime JSRuntime
 	@inject ARScope Scope
 

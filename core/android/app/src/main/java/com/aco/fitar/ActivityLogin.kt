@@ -11,6 +11,7 @@ import androidx.core.app.ActivityOptionsCompat
 import com.aco.fitar.api.ApiManager
 import com.aco.fitar.api.controllers.LoginController
 import com.aco.fitar.core.ActivityBase
+import com.aco.fitar.core.ModelPreferencesManager
 import com.aco.fitar.views.LoginButton
 import com.aco.fitar.views.LoginInfo
 import com.google.android.material.textfield.TextInputEditText
@@ -102,6 +103,8 @@ class ActivityLogin : ActivityBase() {
                     return@call;
                 }
                 btn.finish();
+                loginResponse.password = this.inputPassword.text.toString();
+                ModelPreferencesManager.put(loginResponse, "login");
                 this.navigateToMain()
             });
         }

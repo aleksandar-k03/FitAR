@@ -447,3 +447,4 @@ D:\git\FitAr\core\FitAR\FitAR.Web\obj\Debug\netcoreapp3.1\staticwebassets\FitAR.
 D:\git\FitAr\core\FitAR\FitAR.Web\obj\Debug\netcoreapp3.1\FitAR.Web.dll
 D:\git\FitAr\core\FitAR\FitAR.Web\obj\Debug\netcoreapp3.1\FitAR.Web.pdb
 D:\git\FitAr\core\FitAR\FitAR.Web\obj\Debug\netcoreapp3.1\FitAR.Web.genruntimeconfig.cache
+D:\git\FitAr\core\FitAR\FitAR.Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.dll

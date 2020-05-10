@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FitAR.Sockets.Android;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Net.WebSockets;
@@ -12,25 +13,31 @@ namespace FitAR.Sockets
   {
     protected ConnectionManager WebSocketConnectionManager { get; set; }
 
-    public int UkupanBrojKonekcija => this.WebSocketConnectionManager.Num;
-
+    public int NumberOfConnections = 0;
+    
     public WebSocketHandler(ConnectionManager webSocketConnectionManager)
     {
       WebSocketConnectionManager = webSocketConnectionManager;
+      this.OnConstructor();
     }
 
+    public virtual void OnConstructor() { }
     public virtual string CreateId(HttpContext context)
     {
       return string.Empty;
     }
 
+    public string ID(WebSocket socket) => WebSocketConnectionManager.GetId(socket);
+
     public virtual async Task OnConnected(string id, WebSocket socket)
     {
+      this.NumberOfConnections++;
       WebSocketConnectionManager.AddSocket(id, socket);
     }
 
     public virtual async Task OnDisconnected(WebSocket socket)
     {
+      this.NumberOfConnections--;
       string id = WebSocketConnectionManager.GetId(socket);
       Console.WriteLine($"Diskonekcija ${id}");
       await WebSocketConnectionManager.RemoveSocket(id);
