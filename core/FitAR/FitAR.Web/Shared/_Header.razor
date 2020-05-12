@@ -3,7 +3,7 @@
 	<div class="navbar-wrapper">
 
 		<div class="navbar-logo">
-			<a class="mobile-menu" id="mobile-collapse" onclick="javascript:toggleFullScreen()">
+			<a class="mobile-menu" id="mobile-collapse" onclick="javascript:void(0)">
 				<i class="feather icon-menu"></i>
 			</a>
 			<a href="index-1.htm">
@@ -16,15 +16,15 @@
 
 		<div class="navbar-container container-fluid">
 			<ul class="nav-left">
-				<li class="header-search">
-					<div class="main-search morphsearch-search">
-						<div class="input-group">
-							<span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
-							<input type="text" class="form-control">
-							<span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
-						</div>
-					</div>
-				</li>
+				@*<li class="header-search">
+			<div class="main-search morphsearch-search">
+				<div class="input-group">
+					<span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
+					<input type="text" class="form-control">
+					<span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+				</div>
+			</div>
+		</li>*@
 				<li>
 					<a onclick="javascript:toggleFullScreen()">
 						<i class="feather icon-maximize full-screen"></i>
@@ -34,7 +34,7 @@
 			<ul class="nav-right">
 				<li class="header-notification">
 
-					<div class="dropdown-primary dropdown">
+					@*<div class="dropdown-primary dropdown">
 						<div class="dropdown-toggle" data-toggle="dropdown">
 							<i class="feather icon-bell"></i>
 							<span class="badge bg-c-pink">5</span>
@@ -75,18 +75,18 @@
 								</div>
 							</li>
 						</ul>
-					</div>
+					</div>*@
 
 
 				</li>
-				<li class="header-notification">
+				@*<li class="header-notification">
 					<div class="dropdown-primary dropdown">
 						<div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
 							<i class="feather icon-message-square"></i>
 							<span class="badge bg-c-green">3</span>
 						</div>
 					</div>
-				</li>
+				</li>*@
 				<li class="user-profile header-notification">
 
 					@if (Context.IsLoggedIn)
@@ -123,7 +123,7 @@
 </nav>
 
 <!-- Sidebar chat start -->
-<div id="sidebar" class="users p-chat-user showChat">
+@*<div id="sidebar" class="users p-chat-user showChat">
 	<div class="had-container">
 		<div class="card card_main p-fixed users-main">
 			<div class="user-box">
@@ -187,9 +187,9 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>*@
 <!-- Sidebar inner chat start-->
-<div class="showChat_inner">
+@*<div class="showChat_inner">
 	<div class="media chat-inner-header">
 		<a class="back_chatBox">
 			<i class="feather icon-chevron-left"></i> Josephin Doe
@@ -227,7 +227,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>*@
 
 @code{
 	@inherits ARPage
@@ -238,7 +238,7 @@
 	protected override void OnInitialized()
 	{
 		this.OnInitializedAsync();
-		this.ScopeWith(Scope, ARScope.ScopeComponent.Header);
+		this.ScopeWith(Scope, ARScope.ScopeComponent.Header, this.OnData);
 	}
 
 	async void OnLogout()
@@ -252,6 +252,19 @@
 	public async Task WriteCookieAsync(string name, string value, int days = -365)
 	{
 		var test = await JSRuntime.InvokeAsync<object>("blazorExtensions.WriteCookie", name, value, days);
+	}
+
+	public void OnData(dynamic data)
+	{
+		if (data == null)
+			return;
+
+		try
+		{
+			this.Context.Client = data as ClientDM;
+		}
+		catch (Exception e) { }
+
 	}
 
 }

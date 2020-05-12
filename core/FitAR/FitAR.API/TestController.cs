@@ -1,4 +1,6 @@
-﻿using FitAR.Sockets;
+﻿using Direct.Fitardb.Models;
+using Direct.Helpers;
+using FitAR.Sockets;
 using FitAR.Sockets.Dashboard.Models;
 using FitAR.Web.API.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +12,7 @@ using System.Text;
 namespace FitAR.Web.API
 {
   [Route("api/test")]
-  [Descriptor(Name = "Тест Контролер", Description = @"Користи се за тестирање апи-ја")]
+  [Descriptor(Name = "TestController", Description = @"Користи се за тестирање апи-ја")]
   public class TestController : ARApiController
   {
     private DashboardSocketHandler socket = null;
@@ -36,6 +38,22 @@ namespace FitAR.Web.API
       });
       result.GenerateError("Sve ok");
       return result;
+    }
+
+    [HttpGet]
+    [Route("createUser")]
+    public ActionResult CreateUser(string username, string password)
+    {
+      ClientDM client = new ClientDM()
+      {
+        username = username,
+        password = DirectPassword.Hash(password),
+        firstName = "firstname",
+        lastName = "lastname"
+      };
+      client.InsertAsync();
+      client.WaitIDExplicit(10);
+      return this.Content("Userid: " + client.ID.Value);
     }
 
   }

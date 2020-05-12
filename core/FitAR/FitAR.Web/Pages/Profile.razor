@@ -24,121 +24,187 @@
 		@if (this.Client != null)
 		{
 
-		<div class="page-body">
-			<!--profile cover start-->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="cover-profile">
-						<div class="profile-bg-img">
-							<img class="profile-bg-img img-fluid" src="assets\images\user-profile\bg-img1.jpg" alt="bg-img">
-							<div class="card-block user-info">
-								<div class="col-md-12">
-									<div class="media-left">
-										<a href="#" class="profile-image">
-											<img class="user-img img-radius" src="@this.Client.profilePic" alt="user-img" style="width:100px">
-										</a>
-									</div>
-									<div class="media-body row">
-										<div class="col-lg-12">
-											<div class="user-title">
-												<h2>@this.Client.username</h2>
-												<span class="text-white">@this.Client.firstName @this.Client.lastName</span>
-											</div>
+			<div class="page-body">
+				<!--profile cover start-->
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="cover-profile">
+							<div class="profile-bg-img">
+								<img class="profile-bg-img img-fluid" src="assets\images\user-profile\bg-img1.jpg" alt="bg-img">
+								<div class="card-block user-info">
+									<div class="col-md-12">
+										<div class="media-left">
+											<a href="#" class="profile-image">
+												<img class="user-img img-radius" src="@this.Client.profilePic" alt="user-img" style="width:100px">
+											</a>
 										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--profile cover end-->
-			<div class="row">
-				<div class="col-lg-12">
-					<!-- tab header end -->
-					<!-- tab content start -->
-					<div class="tab-content">
-						<!-- tab panel personal start -->
-						<div class="tab-pane active" id="personal" role="tabpanel">
-							<!-- personal card start -->
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-header-text">Подаци о кориснику</h5>
-									<button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
-										<i class="icofont icofont-edit"></i>
-									</button>
-								</div>
-								<div class="card-block">
-									<div class="view-info">
-										<div class="row">
+										<div class="media-body row">
 											<div class="col-lg-12">
-												<div class="general-info">
-													<div class="row">
-														<div class="col-lg-12 col-xl-6">
-															<div class="table-responsive">
-																<table class="table m-0">
-																	<tbody>
-																		<tr>
-																			<th scope="row">Име и презиме</th>
-																			<td>@Client.firstName @Client.lastName</td>
-																		</tr>
-																		<tr>
-																			<th scope="row">Профил креиран</th>
-																			<td>@Client.created.ToString()</td>
-																		</tr>
-																	</tbody>
-																</table>
-															</div>
-														</div>
-														<!-- end of table col-lg-6 -->
-													</div>
-													<!-- end of row -->
-												</div>
-												<!-- end of general info -->
-											</div>
-											<!-- end of col-lg-12 -->
-										</div>
-										<!-- end of row -->
-									</div>
-									<!-- end of edit-info -->
-								</div>
-								<!-- end of card-block -->
-							</div>
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="card">
-										<div class="card-header">
-											<h5 class="card-header-text">Description About Me</h5>
-											<button id="edit-info-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
-												<i class="icofont icofont-edit"></i>
-											</button>
-										</div>
-										<div class="card-block user-desc">
-											<div class="view-desc">
-												<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?" "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able To Do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pain.</p>
-											</div>
-											<div class="edit-desc">
-												<div class="col-md-12">
-													<textarea id="description">
-													<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?" "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able To Do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pain.</p>
-                                                        </textarea>
-												</div>
-												<div class="text-center">
-													<a href="#!" class="btn btn-primary waves-effect waves-light m-r-20 m-t-20">Save</a>
-													<a href="#!" id="edit-cancel-btn" class="btn btn-default waves-effect m-t-20">Cancel</a>
+												<div class="user-title">
+													<h2>@this.Client.username</h2>
+													<span class="text-white">@this.Client.firstName @this.Client.lastName</span>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<!-- personal card end-->
 						</div>
 					</div>
-					<!-- tab content end -->
+				</div>
+				<!--profile cover end-->
+				<div class="row">
+					<div class="col-lg-12">
+						<!-- tab header end -->
+						<!-- tab content start -->
+						<div class="tab-content">
+							<!-- tab panel personal start -->
+							<div class="tab-pane active" id="personal" role="tabpanel">
+								<!-- personal card start -->
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-header-text">Подаци о кориснику</h5>
+									</div>
+									<div class="card-block">
+										<div class="view-info">
+											<div class="row">
+												<div class="col-lg-12">
+													<div class="general-info">
+														<div class="row">
+															<div class="col-lg-12 col-xl-6">
+																<div class="table-responsive">
+																	<table class="table m-0">
+																		<tbody>
+																			<tr>
+																				<th scope="row">Име и презиме</th>
+																				<td>@Client.firstName @Client.lastName</td>
+																			</tr>
+																			<tr>
+																				<th scope="row">Профил креиран</th>
+																				<td>@Client.created.PrintDate()</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+															<!-- end of table col-lg-6 -->
+														</div>
+														<!-- end of row -->
+													</div>
+													<!-- end of general info -->
+												</div>
+												<!-- end of col-lg-12 -->
+											</div>
+											<!-- end of row -->
+										</div>
+										<!-- end of edit-info -->
+									</div>
+									<!-- end of card-block -->
+								</div>
+
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="card">
+											<div class="card-header">
+												<h5 class="card-header-text">Креиране поруке</h5>
+											</div>
+											<div class="card-block user-desc">
+
+												<div class="card-block">
+													<div class="dt-responsive table-responsive">
+														<table class="table table-striped table-bordered nowrap" serialize>
+															<thead>
+																<tr>
+																	<th>Порука</th>
+																	<th>Латитуда</th>
+																	<th>Лонгтитуда</th>
+																	<th>ИД Сесије</th>
+																	<th>Вријеме</th>
+																</tr>
+															</thead>
+															<tbody>
+																@foreach (var anchor in this.Anchors)
+																{
+																	<tr>
+																		<th>@anchor.noteText</th>
+																		<th>@anchor.lat</th>
+																		<th>@anchor.lng</th>
+																		<th>@anchor.sessionid</th>
+																		<th>@anchor.created.PrintDate()</th>
+																	</tr>
+																}
+															</tbody>
+															<tfoot>
+																<tr>
+																	<th>Порука</th>
+																	<th>Латитуда</th>
+																	<th>Лонгтитуда</th>
+																	<th>ИД Сесије</th>
+																	<th>Вријеме</th>
+																</tr>
+															</tfoot>
+														</table>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="card">
+											<div class="card-header">
+												<h5 class="card-header-text">Логин подаци</h5>
+											</div>
+											<div class="card-block user-desc">
+
+												<div class="card-block">
+													<div class="dt-responsive table-responsive">
+														<table class="table table-striped table-bordered nowrap" serialize>
+															<thead>
+																<tr>
+																	<th>Латитуда</th>
+																	<th>Лонгтитуда</th>
+																	<th>Трајање сесије</th>
+																	<th>Вријеме</th>
+																</tr>
+															</thead>
+															<tbody>
+																@foreach (var session in this.Sessions)
+																{
+																	<tr>
+																		<th>@session.lat</th>
+																		<th>@session.lng</th>
+																		<th>@session.duration секунди</th>
+																		<th>@session.created.PrintDate()</th>
+																	</tr>
+																}
+															</tbody>
+															<tfoot>
+																<tr>
+																	<th>Латитуда</th>
+																	<th>Лонгтитуда</th>
+																	<th>Трајање сесије</th>
+																	<th>Вријеме</th>
+																</tr>
+															</tfoot>
+														</table>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
 				</div>
 			</div>
-		</div>
 
 		}
 	</div>
@@ -151,18 +217,22 @@
 @code {
 	[Parameter] public string username { get; set; }
 	ClientDM Client = null;
+	List<ClientSessionDM> Sessions = new List<ClientSessionDM>();
+	List<AnchorDM> Anchors = new List<AnchorDM>();
 
 
 	protected override async Task OnParametersSetAsync()
 	{
 		base.OnParametersSetAsync();
 		this.Client = await ARDirect.Instance.Query<ClientDM>().Where("username={0}", this.username).LoadSingleAsync();
-		if(this.Client == null)
+		if (this.Client == null)
 		{
 			this.StateHasChanged();
 			return;
 		}
 
+		this.Sessions = await ARDirect.Instance.Query<ClientSessionDM>().Where("clientid={0}", this.Client.ID.ToString()).Additional("order by created desc").Limit(50).LoadAsync();
+		this.Anchors = await ARDirect.Instance.Query<AnchorDM>().Where("clientid={0}", this.Client.ID).Additional("order by created desc").LoadAsync();
 
 
 	}

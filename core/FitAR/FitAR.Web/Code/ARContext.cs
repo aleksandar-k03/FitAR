@@ -22,7 +22,6 @@ namespace FitAR.Web
         if (!this.Context.Request.Cookies.ContainsKey("wauth"))
           return null;
 
-
         int cid = 0;
         if (!int.TryParse(this.Context.Request.Cookies["wauth"], out cid))
           return null;
@@ -45,6 +44,9 @@ namespace FitAR.Web
         this._client = value;
       }
     }
+
+    public string WebsiteUrl
+      => $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.PathBase}";
 
     public ARContext(IHttpContextAccessor httpContextAccessor)
     {

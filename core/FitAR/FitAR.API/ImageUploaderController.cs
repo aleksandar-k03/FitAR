@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace FitAR.Web.API
 {
   [Route("api/imageUpload")]
-  [Descriptor(Name ="ИЦР слике", Description =
+  [Descriptor(Name ="ICRImageUploader", Description =
     "Користи се за постављање слика у едитору за потребе Интеракција-човјек рачунар")]
   public class ImageUploaderController : ARApiController
   {

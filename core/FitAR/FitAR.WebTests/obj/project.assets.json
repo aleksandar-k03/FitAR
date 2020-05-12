@@ -8,20 +8,27 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\aleks\\.nuget\\packages\\": {}
+    "C:\\Users\\ako\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\git\\FitAr\\core\\FitAR\\FitAR.WebTests\\FitAR.WebTests.csproj",
+      "projectUniqueName": "D:\\git\\FitAR\\core\\FitAR\\FitAR.WebTests\\FitAR.WebTests.csproj",
       "projectName": "FitAR.WebTests",
-      "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.WebTests\\FitAR.WebTests.csproj",
-      "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
-      "outputPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.WebTests\\obj\\",
+      "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.WebTests\\FitAR.WebTests.csproj",
+      "packagesPath": "C:\\Users\\ako\\.nuget\\packages\\",
+      "outputPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.WebTests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\ako\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

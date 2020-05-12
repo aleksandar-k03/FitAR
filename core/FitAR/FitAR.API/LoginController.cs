@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace FitAR.Web.API
 {
   [Route("api/login")]
-  [Descriptor(Name ="Логин Контролер", 
+  [Descriptor(Name ="LoginController", 
     Description = @"Логика за корисничко пријављивање преко андроид апликације")]
   public class LoginController : ARApiController
   {
@@ -68,6 +68,19 @@ namespace FitAR.Web.API
       this.Notify(Sockets.Dashboard.Models.DashboardModel.FunctionTypes.notifySuccess, $"Корисник '${client.username}' се улоговао!");
 
       return result;
+    }
+
+    [HttpGet]
+    [Descriptor(Name = "Профилна слика",
+      Description = @"Враћа профилну слику за корисника са именом")]
+    [Route("profile/{username}")]
+    public async Task<ActionResult> ProfilePic(string username)
+    {
+      var client = await ARDirect.Instance.Query<ClientDM>().Where("username={0}", username).LoadSingleAsync();
+      if(client == null)
+        return null;
+
+      return this.Redirect(client.profilePic);
     }
 
   }

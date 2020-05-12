@@ -11,8 +11,8 @@
 						<div class="d-inline">
 							<h4>@this.ArticleModel.title</h4>
 							<span>
-								Креирано: <strong>@this.ArticleModel.created.ToShortDateString()</strong> <br />
-								Задњи пут модификовано: <strong>@this.ArticleModel.updated.ToShortDateString()</strong>
+								Креирано: <strong>@this.ArticleModel.created.PrintDate()</strong> <br />
+								Mодификовано: <strong>@this.ArticleModel.updated.PrintDate()</strong>
 							</span>
 						</div>
 					</div>

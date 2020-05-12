@@ -24,10 +24,10 @@ namespace FitAR.Web.API
 
 
     [HttpPost]
-    [Descriptor(Name = "Логин Контролер",
+    [Descriptor(Name = "Акција",
       Input = typeof(AnchorModel),
       Output = typeof(AnchorResponseModel),
-      Description = @"")]
+      Description = @"Чувају се подаци о креираном поруци у базу")]
     public async Task<AnchorResponseModel> Index(AnchorModel input)
     {
       var db = ARDirect.Instance;

@@ -20,6 +20,9 @@
 	<link rel="stylesheet" type="text/css" href="~/bower/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="~/assets/icon/feather/css/feather.css">
 	<link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="~/bower/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="~/bower/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="~/assets/pages/data-table/css/buttons.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="~/assets/css/jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" type="text/css" href="~/assets/css/custom.css">
 	<link rel="stylesheet" type="text/css" href="~/assets/pages/notification/notification.css">
@@ -75,10 +78,23 @@
 <script src="~/assets/js/ckuploader.js"></script>
 <script src="~/assets/js/ckeditor.js"></script>
 <script type="text/javascript" src="~/assets/js/bootstrap-growl.min.js"></script>
+
+<script src="~/bower/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/bower/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/assets/pages/data-table/js/jszip.min.js"></script>
+<script src="~/assets/pages/data-table/js/pdfmake.min.js"></script>
+<script src="~/assets/pages/data-table/js/vfs_fonts.js"></script>
+<script src="~/bower/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="~/bower/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="~/bower/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/bower/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/bower/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
 <script type="text/javascript" src="~/assets/pages/notification/notification.js"></script>
 <script type="text/javascript" src="~/assets/js/custom.js"></script>
 <script type="text/javascript" src="~/assets/js/script.js"></script>
 <script>
+
 	function onReady(firstRender) {
 		if (firstRender) {
 			initMenu();
@@ -87,6 +103,8 @@
 		}
 
 		CKCustomEditor.init();
+		TablesUpdate();
+
 	}
 </script>
 </html>

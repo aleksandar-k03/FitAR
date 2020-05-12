@@ -1,7 +1,5 @@
 "use strict";
 
-$(document).ready(function () { scriptReady(); });
-
 function scriptReady() {
 	var $window = $(window);
 	//add id to main menu for mobile menu start
@@ -56,6 +54,12 @@ function scriptReady() {
 		setHeight: "calc(100% - 80px)",
 	});
 	/*chatbar js start*/
+
+	console.log('init');
+	$('body').on('click', '.pcoded-overlay-box', function () {
+		console.log('klik');
+		$('#mobile-collapse').click();
+	});
 
 	/*chat box scroll*/
 	var a = $(window).height() - 80;

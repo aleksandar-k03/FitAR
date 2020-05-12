@@ -55,7 +55,7 @@
 	protected override void OnInitialized()
 	{
 		this.OnInitializedAsync();
-		this.ScopeWith(Scope, ARScope.ScopeComponent.Login);
+		this.ScopeWith(Scope, ARScope.ScopeGroup.Login, ARScope.ScopeComponent.Login);
 	}
 
 	string errorMessage = "";
@@ -110,7 +110,8 @@
 			CachingManager.LoggedInDashboard.Add(client.clientid.ToString());
 
 		this.StateHasChanged();
-		Scope.NotifyStateChange();
+
+		Scope.NotifyStateChange(ARScope.ScopeComponent.Header, client);
 		NavigationManager.NavigateTo("/");
 	}
 
@@ -118,5 +119,6 @@
 	{
 		var test = await JSRuntime.InvokeAsync<object>("blazorExtensions.WriteCookie", name, value, days);
 	}
+
 
 }

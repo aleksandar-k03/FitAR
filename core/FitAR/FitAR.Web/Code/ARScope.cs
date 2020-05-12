@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using FitAR.Web.Code;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -13,6 +15,7 @@ namespace FitAR.Web
     public enum ScopeGroup
     {
       Socket, 
+      Login,
       ICR
     }
 
@@ -24,12 +27,12 @@ namespace FitAR.Web
       MS_ICR
     }
 
-    protected Dictionary<ScopeComponent, Action> Actions = new Dictionary<ScopeComponent, Action>();
-    protected Dictionary<ScopeGroup, Dictionary<ScopeComponent, Action>> Groups = new Dictionary<ScopeGroup, Dictionary<ScopeComponent, Action>>();
+    protected Dictionary<ScopeComponent, ARScopeEntry> Actions = new Dictionary<ScopeComponent, ARScopeEntry>();
+    protected Dictionary<ScopeGroup, Dictionary<ScopeComponent, ARScopeEntry>> Groups = new Dictionary<ScopeGroup, Dictionary<ScopeComponent, ARScopeEntry>>();
 
-    public KeyValuePair<ScopeComponent, Action> AddAction(ScopeComponent id, Action action)
+    public KeyValuePair<ScopeComponent, ARScopeEntry> AddAction(ScopeComponent id, ARScopeEntry entry)
     {
-      KeyValuePair<ScopeComponent, Action> pair = KeyValuePair.Create<ScopeComponent, Action>(id, action);
+      KeyValuePair<ScopeComponent, ARScopeEntry> pair = KeyValuePair.Create<ScopeComponent, ARScopeEntry>(id, entry);
       if (this.Actions.ContainsKey(id))
         return pair;
 
@@ -37,39 +40,48 @@ namespace FitAR.Web
       return pair;
     }
 
-    public void AddIntoGroup(ScopeGroup group, ScopeComponent component, Action action)
+    public void AddIntoGroup(ScopeGroup group, ScopeComponent component, ARScopeEntry entry)
     {
-      var elem = this.AddAction(component, action);
+      var elem = this.AddAction(component, entry);
       if (!Groups.ContainsKey(group))
-        Groups.Add(group, new Dictionary<ScopeComponent, Action>());
+        Groups.Add(group, new Dictionary<ScopeComponent, ARScopeEntry>());
 
       if (!Groups[group].ContainsKey(component))
         Groups[group].Add(elem.Key, elem.Value);
     }
 
-    public void NotifyStateChange()
+    public void NotifyStateChange(dynamic? data = null)
     {
       foreach (var action in this.Actions)
-        try { action.Value?.Invoke(); }
+        try 
+        {
+          action.Value.Inline.Invoke();
+          action.Value.Override?.Invoke(data);
+        }
         catch { }
     }
 
-    public void NotifyStateChange(ScopeGroup group)
+    public void NotifyStateChange(ScopeGroup group, dynamic? data = null)
     {
       if (!Groups.ContainsKey(group))
         return;
-
+      
       foreach (var action in this.Groups[group])
-        try { action.Value?.Invoke(); }
+        try 
+        {
+          action.Value.Inline.Invoke();
+          action.Value.Override?.Invoke(data);
+        }
         catch { }
     }
 
-    public void NotifyStateChange(ScopeComponent component)
+    public void NotifyStateChange(ScopeComponent component, dynamic? data = null)
     {
       if (!Actions.ContainsKey(component))
         return;
 
-      Actions[component]?.Invoke();
+      Actions[component]?.Inline.Invoke();
+      Actions[component]?.Override?.Invoke(data);
     }
 
   }

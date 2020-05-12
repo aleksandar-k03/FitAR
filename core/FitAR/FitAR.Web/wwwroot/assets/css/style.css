@@ -4981,6 +4981,10 @@ span.badge {
     -ms-flex-pack: center;
     justify-content: center
   }
+
+    .header-navbar .navbar-wrapper .navbar-logo .mobile-menu {
+      left: -180px !important;
+    }
 }
 
 .header-navbar .navbar-wrapper .navbar-logo h5 {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using FitAR.Web.Code;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
@@ -8,24 +9,27 @@ using System.Threading.Tasks;
 
 namespace FitAR.Web
 {
-  public class ARPage : ComponentBase
+  public class ARPage : ComponentBase, IDisposable
   {
+    public void Dispose() { this.OnDispose(); }
+    public virtual void OnDispose() { }
 
-    public void ScopeWith(ARScope scope, ARScope.ScopeComponent component, Action? action = null) => this.ScopeWith(scope, null, component, action);
-    public void ScopeWith(ARScope scope, ARScope.ScopeGroup? group, ARScope.ScopeComponent component, Action? action = null)
+    public void ScopeWith(ARScope scope, ARScope.ScopeComponent component, Action<dynamic>? action = null) => this.ScopeWith(scope, null, component, action);
+    public void ScopeWith(ARScope scope, ARScope.ScopeGroup? group, ARScope.ScopeComponent component, Action<dynamic>? action = null)
     {
-      Action inlineAction = () =>
+      ARScopeEntry entry = new ARScopeEntry();
+      entry.Inline = () =>
       {
         InvokeAsync(() => { this.StateHasChanged(); });
-        if (action != null)
-          action?.Invoke();
       };
+      entry.Override = action;
 
       if (group.HasValue)
-        scope.AddIntoGroup(group.Value, component, inlineAction);
+        scope.AddIntoGroup(group.Value, component, entry);
       else
-        scope.AddAction(component, inlineAction);
+        scope.AddAction(component, entry);
     }
+
 
   }
 }

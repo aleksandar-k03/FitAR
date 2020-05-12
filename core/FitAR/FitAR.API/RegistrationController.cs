@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace FitAR.Web.API
 {
   [Route("api/registration")]
-  [Descriptor(Name = "Контролер за регистрацију", 
+  [Descriptor(Name = "RegistrationController", 
     Description = @"Логика за креирање корисничког налога преко андроид апликације")]
   public class RegistrationController : ARApiController
   {

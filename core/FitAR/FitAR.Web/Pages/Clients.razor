@@ -1,0 +1,91 @@
+﻿@page "/clients"
+
+<div class="main-body">
+	<div class="page-wrapper">
+		<!-- Page-header start -->
+		<div class="page-header">
+
+			<div class="page-body">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-header">
+								<h5>Регистровани корисници</h5>
+								<span>Регистрација се врши преко андроид апликације</span>
+
+							</div>
+							<div class="card-block">
+								<div class="dt-responsive table-responsive">
+									<table class="table table-striped table-bordered nowrap" serialize>
+										<thead>
+											<tr>
+												<th>Профилна слика</th>
+												<th>Корисничко име</th>
+												<th>Име</th>
+												<th>Презиме</th>
+												<th>Последњи логин</th>
+												<th>Налог креиран</th>
+											</tr>
+										</thead>
+										<tbody>
+											@foreach (var client in this.RegisteredClients)
+											{
+												<tr>
+													<td>
+														<div class="profileImg" style="background-image:url('@client.profilePic')"></div>
+													</td>
+													<td>
+														<a href="/profile/@client.username">
+															@client.username
+														</a>
+													</td>
+													<td>
+														@client.firstName
+													</td>
+													<td>
+														@client.lastName
+													</td>
+													<td>
+														@client.LastLogin().PrintDate()
+													</td>
+													<td>
+														@client.created.PrintDate()
+													</td>
+												</tr>
+											}
+										</tbody>
+										<tfoot>
+											<tr>
+												<th>Профилна слика</th>
+												<th>Корисничко име</th>
+												<th>Име</th>
+												<th>Презиме</th>
+												<th>Последњи логин</th>
+												<th>Налог креиран</th>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+@code { 
+
+	public List<ClientDM> RegisteredClients = new List<ClientDM>();
+
+	protected override async Task OnInitializedAsync()
+	{
+		this.RegisteredClients = await ARDirect.Instance.Query<ClientDM>().Where("[id]>0").LoadAsync();
+
+		base.OnInitialized();
+	}
+
+}

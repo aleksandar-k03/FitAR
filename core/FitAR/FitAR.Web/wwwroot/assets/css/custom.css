@@ -283,3 +283,13 @@
     width: 100%;
     box-shadow: 0px 0px 30px #0000000a;
   }
+
+
+
+.profileImg {
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

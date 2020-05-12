@@ -48,10 +48,8 @@
 								<div class="card">
 									<div class="card-header">
 										<h5>@method.Name</h5>
+										<span style="color:#0000a8">@Context.WebsiteUrl/@method.Route</span>
 										<span>@method.Description</span>
-										<div class="card-header-right">
-											<span>@method.Route</span>
-										</div>
 									</div>
 									<div class="card-block">
 										Улазни параметри <br />
@@ -74,6 +72,7 @@
 
 	@code{
 		@inject IJSRuntime JSRuntime
+		@inject ARContext Context
 		@inject NavigationManager NavigationManager
 
 		[Parameter] public string name { get; set; }
