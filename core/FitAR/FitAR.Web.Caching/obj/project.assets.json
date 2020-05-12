@@ -8195,27 +8195,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ako\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\aleks\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Web.Caching\\FitAR.Web.Caching.csproj",
+      "projectUniqueName": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Web.Caching\\FitAR.Web.Caching.csproj",
       "projectName": "FitAR.Web.Caching",
-      "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Web.Caching\\FitAR.Web.Caching.csproj",
-      "packagesPath": "C:\\Users\\ako\\.nuget\\packages\\",
-      "outputPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Web.Caching\\obj\\",
+      "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Web.Caching\\FitAR.Web.Caching.csproj",
+      "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
+      "outputPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Web.Caching\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ako\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -8230,11 +8223,11 @@
             "D:\\git\\Direct\\Direct\\Direct.csproj": {
               "projectPath": "D:\\git\\Direct\\Direct\\Direct.csproj"
             },
-            "D:\\git\\FitAR\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj": {
-              "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj"
+            "D:\\git\\FitAr\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj": {
+              "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj"
             },
-            "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
-              "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
+            "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
+              "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
             }
           }
         }

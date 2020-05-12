@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace FitAR.Web.Caching
 {
 
-  internal static class CachingArticlesManager
+  public static class CachingArticlesManager
   {
     public static async Task<List<CachingArticles>> Load(int typeid)
     {
@@ -20,7 +20,7 @@ namespace FitAR.Web.Caching
       {
         if (articledm.fallbackid.HasValue == false)
         {
-          result.Add(new CachingArticles() { ID= articledm.articleid, Title = articledm.title });
+          result.Add(new CachingArticles() { ID= articledm.articleid, Title = articledm.title, Index = articledm.defaultIndex }); 
           continue;
         }
 
@@ -31,8 +31,11 @@ namespace FitAR.Web.Caching
           continue;
         }
 
-        fallbackArticle.Columns.Add(new CachingArticles() { ID = articledm.ID.Value, Title = articledm.title });
+        fallbackArticle.Columns.Add(new CachingArticles() { ID = articledm.ID.Value, Title = articledm.title, Index = articledm.defaultIndex });
       }
+
+      foreach (var article in result)
+        article.Columns = article.Columns.OrderBy(x => x.Index).ToList();
 
       return result;
     }
@@ -45,6 +48,7 @@ namespace FitAR.Web.Caching
     public int ID { get; set; } = -1;
     public string Title { get; set; } = string.Empty;
     public bool IsThisMetaArticle => this.Columns.Count > 0;
+    public int Index { get; set; } = 1;
     public List<CachingArticles> Columns { get; set; } = new List<CachingArticles>();
   }
 }

@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\git\\FitAR\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj": {}
+    "D:\\git\\FitAr\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj": {}
   },
   "projects": {
     "D:\\git\\Direct\\Direct.RedisDistribution\\Direct.RedisDistribution.csproj": {
@@ -10,17 +10,12 @@
         "projectUniqueName": "D:\\git\\Direct\\Direct.RedisDistribution\\Direct.RedisDistribution.csproj",
         "projectName": "Direct.RedisDistribution",
         "projectPath": "D:\\git\\Direct\\Direct.RedisDistribution\\Direct.RedisDistribution.csproj",
-        "packagesPath": "C:\\Users\\ako\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
         "outputPath": "D:\\git\\Direct\\Direct.RedisDistribution\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ako\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -70,17 +65,12 @@
         "projectUniqueName": "D:\\git\\Direct\\Direct\\Direct.csproj",
         "projectName": "Direct",
         "projectPath": "D:\\git\\Direct\\Direct\\Direct.csproj",
-        "packagesPath": "C:\\Users\\ako\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
         "outputPath": "D:\\git\\Direct\\Direct\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ako\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -171,23 +161,18 @@
         }
       }
     },
-    "D:\\git\\FitAR\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj": {
+    "D:\\git\\FitAr\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\git\\FitAR\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj",
+        "projectUniqueName": "D:\\git\\FitAr\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj",
         "projectName": "FitAR.Web.API",
-        "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj",
-        "packagesPath": "C:\\Users\\ako\\.nuget\\packages\\",
-        "outputPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.API\\obj\\",
+        "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.API\\FitAR.Web.API.csproj",
+        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
+        "outputPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ako\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -199,11 +184,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
-                "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
+              "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
+                "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
               },
-              "D:\\git\\FitAR\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj": {
-                "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj"
+              "D:\\git\\FitAr\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj": {
+                "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj"
               }
             }
           }
@@ -249,23 +234,18 @@
         }
       }
     },
-    "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
+    "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj",
+        "projectUniqueName": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj",
         "projectName": "FitAR.Database",
-        "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj",
-        "packagesPath": "C:\\Users\\ako\\.nuget\\packages\\",
-        "outputPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\obj\\",
+        "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj",
+        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
+        "outputPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ako\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -313,23 +293,18 @@
         }
       }
     },
-    "D:\\git\\FitAR\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj": {
+    "D:\\git\\FitAr\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj",
+        "projectUniqueName": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj",
         "projectName": "FitAR.Sockets",
-        "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj",
-        "packagesPath": "C:\\Users\\ako\\.nuget\\packages\\",
-        "outputPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Sockets\\obj\\",
+        "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Sockets\\FitAR.Sockets.csproj",
+        "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
+        "outputPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Sockets\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ako\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -344,8 +319,8 @@
               "D:\\git\\Direct\\Direct\\Direct.csproj": {
                 "projectPath": "D:\\git\\Direct\\Direct\\Direct.csproj"
               },
-              "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
-                "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
+              "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
+                "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
               }
             }
           }

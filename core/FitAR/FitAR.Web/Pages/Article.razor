@@ -41,6 +41,9 @@
 									<div class="col-sm-12">
 										<input type="text" placeholder="Naslov" class="form-control" @bind="this.ArticleModel.title">
 									</div>
+									<div class="col-sm-12">
+										<input type="text" placeholder="Индекс" class="form-control" @bind="this.ArticleModel.defaultIndex">
+									</div>
 								</div>
 								<div id="content" class="ck">
 									@((MarkupString)this.ArticleModel.html)
@@ -125,14 +128,16 @@
 		this.ArticleModel.html = await JSRuntime.InvokeAsync<string>("CKCustomEditor.getData");
 		await this.ArticleModel.UpdateAsync();
 
-		// update title
-		var fallbackArticle = (from a in CachingManager.IRCArticles where a.ID == this.ArticleModel.fallbackid.Value select a).FirstOrDefault();
-		for (var i = 0; i < fallbackArticle.Columns.Count; i++)
-			if (fallbackArticle.Columns[i].ID == this.ArticleModel.ID.Value)
-			{
-				fallbackArticle.Columns[i].Title = this.ArticleModel.title;
-				break;
-			}
+		//// update title
+		//var fallbackArticle = (from a in CachingManager.IRCArticles where a.ID == this.ArticleModel.fallbackid.Value select a).FirstOrDefault();
+		//for (var i = 0; i < fallbackArticle.Columns.Count; i++)
+		//	if (fallbackArticle.Columns[i].ID == this.ArticleModel.ID.Value)
+		//	{
+		//		fallbackArticle.Columns[i].Title = this.ArticleModel.title;
+		//		break;
+		//	}
+
+		CachingManager.IRCArticles = await CachingArticlesManager.Load(1);
 		this.StateHasChanged();
 	}
 

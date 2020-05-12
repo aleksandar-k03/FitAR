@@ -7340,27 +7340,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ako\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\aleks\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database.ModelGenerator\\FitAR.Database.ModelGenerator.csproj",
+      "projectUniqueName": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database.ModelGenerator\\FitAR.Database.ModelGenerator.csproj",
       "projectName": "FitAR.Database.ModelGenerator",
-      "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database.ModelGenerator\\FitAR.Database.ModelGenerator.csproj",
-      "packagesPath": "C:\\Users\\ako\\.nuget\\packages\\",
-      "outputPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database.ModelGenerator\\obj\\",
+      "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database.ModelGenerator\\FitAR.Database.ModelGenerator.csproj",
+      "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
+      "outputPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database.ModelGenerator\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ako\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -7378,8 +7371,8 @@
             "D:\\git\\Direct\\Direct\\Direct.csproj": {
               "projectPath": "D:\\git\\Direct\\Direct\\Direct.csproj"
             },
-            "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
-              "projectPath": "D:\\git\\FitAR\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
+            "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj": {
+              "projectPath": "D:\\git\\FitAr\\core\\FitAR\\FitAR.Database\\FitAR.Database.csproj"
             }
           }
         }
