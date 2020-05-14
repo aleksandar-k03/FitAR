@@ -47,6 +47,11 @@ namespace FitAR.Sockets.Android
       this._lastPingModel = model;
     }
 
+    public void OnConnect(WebSocket socket)
+    {
+      this.socket = socket;
+    }
+
     public async Task OnDisconect()
     {
       this.session.duration = (DateTime.Now - this.created).TotalSeconds;

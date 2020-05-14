@@ -1,7 +1,7 @@
 using Direct.Models;
 using System;
 
-// auto generated 5/12/2020 11:17:04 PM
+// auto generated 5/15/2020 12:06:10 AM
 
 namespace Direct.Fitardb.Models
 {
@@ -22,7 +22,7 @@ namespace Direct.Fitardb.Models
 		[DColumn(Name = "updated", HasDefaultValue=true, DateTimeUpdate=true, NotUpdatable=true)]
 		public DateTime updated { get; set; } = DateTime.Now;
 
-		[DColumn(Name = "created", HasDefaultValue=true, DateTimeUpdate=true, NotUpdatable=true)]
+		[DColumn(Name = "created", HasDefaultValue=true, NotUpdatable=true)]
 		public DateTime created { get; set; } = DateTime.Now;
 
 

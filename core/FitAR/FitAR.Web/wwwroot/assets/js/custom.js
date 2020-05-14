@@ -129,3 +129,8 @@ function TablesUpdate() {
 		});
 	}, 500);
 }
+
+
+function getValue(id) {
+	return $(id).val();
+}

@@ -43,18 +43,18 @@ namespace FitAR.Web
       switch (Val)
       {
         default:
-        case 0: return "Јануар";
-        case 1: return "Фебруар";
-        case 2: return "Март";
-        case 3: return "Април";
-        case 4: return "Мај";
-        case 5: return "Јун";
-        case 6: return "Јул";
-        case 7: return "Август";
-        case 8: return "Септембар";
-        case 9: return "Октобар";
-        case 10: return "Новембар";
-        case 11: return "Децембар";
+        case 1: return "Јануар";
+        case 2: return "Фебруар";
+        case 3: return "Март";
+        case 4: return "Април";
+        case 5: return "Мај";
+        case 6: return "Јун";
+        case 7: return "Јул";
+        case 8: return "Август";
+        case 9: return "Септембар";
+        case 10: return "Октобар";
+        case 11: return "Новембар";
+        case 12: return "Децембар";
       }
     }
     public static string Decimal(int Val)

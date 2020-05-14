@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace FitAR.Web
 {
   public class ARPage : ComponentBase, IDisposable
   {
+    
+
     public void Dispose() { this.OnDispose(); }
     public virtual void OnDispose() { }
 
@@ -30,6 +33,19 @@ namespace FitAR.Web
         scope.AddAction(component, entry);
     }
 
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //  try
+    //  {
+    //    await this._jsRuntime.InvokeVoidAsync("onReady", firstRender);
+    //  }
+    //  catch (Exception e)
+    //  {
+    //    Console.WriteLine("Greska sa onReady");
+    //  }
+
+    //  return base.OnAfterRenderAsync(firstRender);
+    //}
 
   }
 }

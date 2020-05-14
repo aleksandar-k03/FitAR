@@ -15,7 +15,14 @@
 
 	protected override async Task OnAfterRenderAsync(bool firstRender)
 	{
-		await JSRuntime.InvokeVoidAsync("onReady", firstRender);
+		try
+		{
+			await JSRuntime.InvokeVoidAsync("onReady", firstRender);
+		}
+		catch(Exception e)
+		{
+			Console.WriteLine("Greska sa onReady");
+		}
 	}
 
 	public override void OnDispose()

@@ -9306,6 +9306,15 @@ p {
   padding: 1.25rem
 }
 
+.card-block-text a:hover {
+  background-color: #e8f7ff;
+}
+
+.card-block-text a {
+  text-decoration: underline;
+  color: #7b7bf9;
+}
+
 .card {
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);

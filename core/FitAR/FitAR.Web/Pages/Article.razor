@@ -27,33 +27,33 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="card">
-							<div class="card-block">
+							<div class="card-block card-block-text">
 								@((MarkupString)this.ArticleModel.html)
 							</div>
 						</div>
 
-						@if(Context.IsAdmin)
+						@if (Context.IsAdmin)
 						{
 
-						<div class="card">
-							<div class="card-block">
-								<div class="form-group row">
-									<div class="col-sm-12">
-										<input type="text" placeholder="Naslov" class="form-control" @bind="this.ArticleModel.title">
+							<div class="card">
+								<div class="card-block">
+									<div class="form-group row">
+										<div class="col-sm-12">
+											<input type="text" placeholder="Naslov" class="form-control" @bind="this.ArticleModel.title">
+										</div>
+										<div class="col-sm-12">
+											<input type="text" placeholder="Индекс" class="form-control" @bind="this.ArticleModel.defaultIndex">
+										</div>
 									</div>
-									<div class="col-sm-12">
-										<input type="text" placeholder="Индекс" class="form-control" @bind="this.ArticleModel.defaultIndex">
+									<div id="content" class="ck">
+										@((MarkupString)this.ArticleModel.html)
 									</div>
 								</div>
-								<div id="content" class="ck">
-									@((MarkupString)this.ArticleModel.html)
+								<div class="card-block">
+									<button class="btn btn-primary" @onclick="OnSave">Sacuvaj</button>
+									<button class="btn btn-danger btn-outline-danger" @onclick="OpenConfirmDelete"><i class="icofont icofont-eye-alt"></i>Izbrisi</button>
 								</div>
 							</div>
-							<div class="card-block">
-								<button class="btn btn-primary" @onclick="OnSave">Sacuvaj</button>
-								<button class="btn btn-danger btn-outline-danger" @onclick="OpenConfirmDelete"><i class="icofont icofont-eye-alt"></i>Izbrisi</button>
-							</div>
-						</div>
 
 						}
 
@@ -92,6 +92,7 @@
 </div>
 
 @code{
+	@inherits ARPage
 	@inject IJSRuntime JSRuntime
 	@inject ARContext Context;
 	@inject NavigationManager NavigationManager

@@ -41,13 +41,18 @@ namespace FitAR.Sockets
 
     public override async Task OnConnected(string id, WebSocket socket)
     {
-      this.AndroidSockets[this.ID(socket)].socket = socket;
+      if (this.AndroidSockets.ContainsKey(this.ID(socket)))
+        this.AndroidSockets[this.ID(socket)].OnConnect(socket);
+      else
+        Console.WriteLine("Ne postoji socket sa id-em:" + this.ID(socket));
+      
       await base.OnConnected(id, socket);
     }
 
     public override async Task OnDisconnected(WebSocket socket)
     {
-      await this.AndroidSockets[this.ID(socket)].OnDisconect();
+      if (this.AndroidSockets.ContainsKey(this.ID(socket)))
+        await this.AndroidSockets[this.ID(socket)].OnDisconect();
       this.AndroidSockets.Remove(this.ID(socket));
     }
 

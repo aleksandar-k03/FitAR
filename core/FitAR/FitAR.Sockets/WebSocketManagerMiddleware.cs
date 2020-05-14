@@ -21,31 +21,38 @@ namespace FitAR.Sockets
 
     public async Task Invoke(HttpContext context)
     {
-      if (!context.WebSockets.IsWebSocketRequest)
-        return;
-
-      string id = _webSocketHandler.CreateId(context);
-      if (string.IsNullOrEmpty(id))
-        return;
-
-      var socket = await context.WebSockets.AcceptWebSocketAsync();
-      await _webSocketHandler.OnConnected(id, socket);
-
-      await Receive(socket, async (result, buffer) =>
+      try
       {
-        if (result.MessageType == WebSocketMessageType.Text)
-        {
-          await _webSocketHandler.ReceiveAsync(socket, result, buffer);
+        if (!context.WebSockets.IsWebSocketRequest)
           return;
-        }
 
-        else if (result.MessageType == WebSocketMessageType.Close)
-        {
-          await _webSocketHandler.OnDisconnected(socket);
+        string id = _webSocketHandler.CreateId(context);
+        if (string.IsNullOrEmpty(id))
           return;
-        }
 
-      });
+        var socket = await context.WebSockets.AcceptWebSocketAsync();
+        await _webSocketHandler.OnConnected(id, socket);
+
+        await Receive(socket, async (result, buffer) =>
+        {
+          if (result.MessageType == WebSocketMessageType.Text)
+          {
+            await _webSocketHandler.ReceiveAsync(socket, result, buffer);
+            return;
+          }
+
+          else if (result.MessageType == WebSocketMessageType.Close)
+          {
+            await _webSocketHandler.OnDisconnected(socket);
+            return;
+          }
+
+        });
+      }
+      catch (Exception e)
+      {
+        return;
+      }
     }
 
     private async Task Receive(WebSocket socket, Action<WebSocketReceiveResult, byte[]> handleMessage)

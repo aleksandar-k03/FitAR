@@ -1,95 +1,96 @@
 ﻿@page "/_api/{name}"
 
 
-	<div class="main-body">
-		<div class="page-wrapper">
-			<!-- Page-header start -->
+<div class="main-body">
+	<div class="page-wrapper">
+		<!-- Page-header start -->
 
-			@if (this.HasError)
+		@if (this.HasError)
+		{
+
+			<div class="page-header">
+				<div class="row align-items-end">
+					<div class="col-lg-8">
+						<div class="page-header-title">
+							<div class="d-inline">
+								<h4>Грешка</h4>
+								<span>Контролер не постоји</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+		else
+		{
+			<div class="page-header">
+				<div class="row align-items-end">
+					<div class="col-lg-8">
+						<div class="page-header-title">
+							<div class="d-inline">
+								<h4>@Controller.Name</h4>
+								<span>@Controller.Description</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+		<!-- Page-header end -->
+
+		@if (this.HasError == false)
+		{
+			@foreach (var method in this.Controller.Methods)
 			{
-
-				<div class="page-header">
-					<div class="row align-items-end">
-						<div class="col-lg-8">
-							<div class="page-header-title">
-								<div class="d-inline">
-									<h4>Грешка</h4>
-									<span>Контролер не постоји</span>
+				<div class="page-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-header">
+									<h5>@method.Name</h5>
+									<span style="color:#0000a8">@Context.WebsiteUrl/@method.Route</span>
+									<span>@method.Description</span>
+								</div>
+								<div class="card-block">
+									Улазни параметри <br />
+									<code>
+										@((MarkupString)method.Input)
+									</code><br /><br />
+									Очекивани одговор<br />
+									<code>
+										@((MarkupString)method.Output)
+									</code>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			}
-			else
-			{
-				<div class="page-header">
-					<div class="row align-items-end">
-						<div class="col-lg-8">
-							<div class="page-header-title">
-								<div class="d-inline">
-									<h4>@Controller.Name</h4>
-									<span>@Controller.Description</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			}
-			<!-- Page-header end -->
-
-			@if (this.HasError == false)
-			{
-				@foreach (var method in this.Controller.Methods)
-				{
-					<div class="page-body">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="card">
-									<div class="card-header">
-										<h5>@method.Name</h5>
-										<span style="color:#0000a8">@Context.WebsiteUrl/@method.Route</span>
-										<span>@method.Description</span>
-									</div>
-									<div class="card-block">
-										Улазни параметри <br />
-										<code>
-											@((MarkupString)method.Input)
-										</code><br /><br />
-										Очекивани одговор<br />
-										<code>
-											@((MarkupString)method.Output)
-										</code>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				}
-			}
-		</div>
+		}
 	</div>
+</div>
 
-	@code{
-		@inject IJSRuntime JSRuntime
-		@inject ARContext Context
-		@inject NavigationManager NavigationManager
+@code{
+	@inherits ARPage
+	@inject IJSRuntime JSRuntime
+	@inject ARContext Context
+	@inject NavigationManager NavigationManager
 
-		[Parameter] public string name { get; set; }
-		public bool HasError = false;
-		public CachingApiController Controller = null;
+	[Parameter] public string name { get; set; }
+	public bool HasError = false;
+	public CachingApiController Controller = null;
 
-		protected override void OnParametersSet()
-		{
-			this.Controller = (from c in CachingManager.ApiControllers where c.ID.Equals(this.name) select c).FirstOrDefault();
-			if (this.Controller == null)
-				this.HasError = true;
-		}
-
-		protected override Task OnInitializedAsync()
-		{
-			return base.OnInitializedAsync();
-		}
-
-
+	protected override void OnParametersSet()
+	{
+		this.Controller = (from c in CachingManager.ApiControllers where c.ID.Equals(this.name) select c).FirstOrDefault();
+		if (this.Controller == null)
+			this.HasError = true;
 	}
+
+	protected override Task OnInitializedAsync()
+	{
+		return base.OnInitializedAsync();
+	}
+
+
+}

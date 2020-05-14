@@ -9,10 +9,11 @@
 <NavLink href="/databaseTable/core:TestTable1">test</NavLink>
 
 @code {
-    private int currentCount = 0;
+	@inherits ARPage
+	private int currentCount = 0;
 
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
+	private void IncrementCount()
+	{
+		currentCount++;
+	}
 }
