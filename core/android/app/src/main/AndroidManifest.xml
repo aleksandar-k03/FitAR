@@ -36,10 +36,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ActivityMain2"/>
-        <activity android:name=".ActivityMain"/>
+        <activity android:name=".ActivityMain"
+            android:theme="@style/AppTheme.Transparent"/>
         <activity android:name=".ActivityLogin"/>
         <activity android:name=".ActivityRegistration"/>
         <activity android:name=".ActivityPlayground"/>
+        <activity android:name=".ActivityTutorial"/>
 
         <meta-data android:name="com.google.ar.core" android:value="required" />
     </application>

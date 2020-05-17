@@ -126,4 +126,10 @@
     <ProjectReference Include="..\FitAR.Web.Caching\FitAR.Web.Caching.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\docs\dokumentacija.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

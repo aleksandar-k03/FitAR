@@ -19,6 +19,6 @@ class LoginResponse : ModelResponseBase() {
     public var username:String="";
     public var firstName:String="";
     public var lastName:String="";
-    public var profilePix:String="";
+    public var profilePic:String="";
 
 }

@@ -12,7 +12,7 @@ class ActivityPlayground : ActivityBase(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setContentView(R.layout.activity_main);
+        this.setContentView(R.layout.activity_playground);
 
         val arFragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as ArFragment;
         this.arManager = ARActivityManager(arFragment);

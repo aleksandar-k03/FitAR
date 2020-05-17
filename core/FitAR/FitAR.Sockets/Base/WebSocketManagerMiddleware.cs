@@ -21,12 +21,13 @@ namespace FitAR.Sockets
 
     public async Task Invoke(HttpContext context)
     {
+      string id = "";
       try
       {
         if (!context.WebSockets.IsWebSocketRequest)
           return;
 
-        string id = _webSocketHandler.CreateId(context);
+        id = _webSocketHandler.CreateId(context);
         if (string.IsNullOrEmpty(id))
           return;
 
@@ -51,6 +52,9 @@ namespace FitAR.Sockets
       }
       catch (Exception e)
       {
+        if (!string.IsNullOrEmpty(id))
+          await _webSocketHandler.ForceDisconnect(id);
+
         return;
       }
     }

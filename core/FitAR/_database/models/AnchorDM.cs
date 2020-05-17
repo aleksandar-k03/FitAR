@@ -1,7 +1,7 @@
 using Direct.Models;
 using System;
 
-// auto generated 5/15/2020 12:06:01 AM
+// auto generated 5/16/2020 10:59:09 PM
 
 namespace Direct.Fitardb.Models
 {

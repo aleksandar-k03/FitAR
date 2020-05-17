@@ -4,11 +4,13 @@ import android.util.Log
 import com.aco.fitar.sockets.SocketHttpsFix
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
+import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
+import org.json.JSONArray
 import org.json.JSONObject
 
 
@@ -27,7 +29,7 @@ abstract class ControllerBase<TModel, TOutput>
     public inline fun <reified TOutput> post(action:String, model:TModel,
                                              responseClass:Class<TOutput>,
                                              crossinline callback:(TOutput)->Unit)
-        where TOutput : ModelResponseBase
+            where TOutput : ModelResponseBase
     {
         val gson = Gson()
         Log.d("ControllerBase", "Calling action ${ApiManager.endpoint}${this.endpoint}/${action}, with data:${gson.toJson(model)}")
@@ -52,5 +54,53 @@ abstract class ControllerBase<TModel, TOutput>
             }
         });
     }
+
+    public inline fun get(action:String, model:TModel?, crossinline callback:(String)->Unit)
+    {
+        val gson = Gson()
+        Log.d("ControllerBase", "Calling action ${ApiManager.endpoint}${this.endpoint}/${action}")
+        var net = AndroidNetworking.post(ApiManager.endpoint + this.endpoint + "/" + action);
+        net.setOkHttpClient(SocketHttpsFix.getUnsafeOkHttpClient().build())
+        if(model != null)
+            net.addBodyParameter(model);
+        val json = Json(JsonConfiguration.Stable)
+
+        net.build().getAsJSONObject(object : JSONObjectRequestListener {
+            override fun onResponse(response: JSONObject) {
+                Log.d("ControllerBase", "Response ${response.toString()}")
+                callback(response.toString())
+            }
+
+            override fun onError(error: ANError) {
+                Log.d("ControllerBase", "Error ${error.toString()}")
+                callback("");
+            }
+        });
+    }
+
+    public inline fun getMultiple(action:String, model:TModel?, crossinline callback:(String)->Unit)
+    {
+        val gson = Gson()
+        Log.d("ControllerBase", "Calling action ${ApiManager.endpoint}${this.endpoint}/${action}")
+        var net = AndroidNetworking.post(ApiManager.endpoint + this.endpoint + "/" + action);
+        net.setOkHttpClient(SocketHttpsFix.getUnsafeOkHttpClient().build())
+        if(model != null)
+            net.addBodyParameter(model);
+        val json = Json(JsonConfiguration.Stable)
+
+        net.build().getAsJSONArray(object : JSONArrayRequestListener {
+            override fun onResponse(response: JSONArray) {
+                Log.d("ControllerBase", "Response ${response.toString()}")
+                callback(response.toString())
+            }
+
+            override fun onError(error: ANError) {
+                Log.d("ControllerBase", "Error ${error.toString()}")
+                callback("");
+            }
+        });
+    }
+
+
 
 }

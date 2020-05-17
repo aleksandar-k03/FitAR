@@ -62,7 +62,7 @@
 						await JSRuntime.InvokeVoidAsync(data.Function.ToString(),  data.Text);
 
 					if (data.RequireReload)
-						ARScope.NotifyStateChange(ARScope.ScopeGroup.Socket);
+						ARScope.NotifyStateChange();
 				}
 				catch(Exception e)
 				{

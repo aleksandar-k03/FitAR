@@ -2,6 +2,7 @@
 using Direct.Helpers;
 using FitAR.Sockets;
 using FitAR.Sockets.Dashboard.Models;
+using FitAR.Sockets.Models;
 using FitAR.Web.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -54,6 +55,41 @@ namespace FitAR.Web.API
       client.InsertAsync();
       client.WaitIDExplicit(10);
       return this.Content("Userid: " + client.ID.Value);
+    }
+
+    [HttpGet]
+    [Route("socket_android/{text}")]
+    [Descriptor(Name = "Акција", Output = typeof(ModelBase), Description = "Враћа текст \"све је ок\"")]
+    public ActionResult SocketAndroid(string text)
+    {
+      if(AndroidSocketManager.Current == null)
+        return this.Content("AndroidSocketManager.Current je null");
+
+      AndroidSocketManager.Current.Send(AndroidSocketMessage.Construct("text", "green", new AndroidSocketTextMessage()
+      {
+         text = text
+      }));
+
+      return this.Content("OK");
+    }
+
+
+    [HttpGet]
+    [Route("socket_web/{text}")]
+    [Descriptor(Name = "Акција", Output = typeof(ModelBase), Description = "Враћа текст \"све је ок\"")]
+    public ActionResult SocketWeb(string text)
+    {
+      if (DashboardSocketHandler.Current == null)
+        return this.Content("AndroidSocketManager.Current je null");
+
+      DashboardSocketHandler.Current.SendToAll(new DashboardModel()
+      {
+        Function = DashboardModel.FunctionTypes.notifyInverse,
+        RequireReload = false,
+        Text = text
+      });
+
+      return this.Content("OK");
     }
 
   }

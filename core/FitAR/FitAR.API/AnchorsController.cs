@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Pipes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,13 +44,32 @@ namespace FitAR.Web.API
       {
         clientid = session.clientid,
         clientsessionid = session.clientSessionID,
-        sessionid = input.sessionid,
+        sessionid = input.anchorid,
         noteText = input.noteText,
         lat = input.lat,
         lng = input.lng
       };
       await anchor.InsertAsync();
 
+      return response;
+    }
+
+    [HttpGet]
+    [HttpPost]
+    [Route("getall")]
+    [Descriptor(Name = "Враћање свих порука из базе",
+      Output = typeof(AnchorResponse),
+      Description = @"Враћа листу порука у простору за потребе андроид апликације")]
+    public async Task<List<AnchorResponse>> GetAll()
+    {
+      var response = new List<AnchorResponse>();
+      await foreach (var anchor in ARDirect.Instance.Query<AnchorDM>().Where("[id]>0").LoadEnumerableAsync())
+        response.Add(new AnchorResponse
+        {
+          id = anchor.sessionid,
+          username = await ARDirect.Instance.LoadStringAsync(@"SELECT username FROM auth.client WHERE clientid={0}", anchor.clientid),
+          text = anchor.noteText
+        });
       return response;
     }
 

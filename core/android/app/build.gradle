@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 def azureSpatialAnchorsSdkVersion = '2.2.1'
@@ -36,6 +37,9 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-analytics:17.4.1'
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
+    implementation 'com.google.firebase:firebase-perf:19.0.7'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -66,6 +70,7 @@ dependencies {
     implementation 'com.microsoft.aad:adal:1.16.0'
 
     implementation 'io.socket:engine.io-client:1.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     // Obj - a simple Wavefront OBJ file loader
     // https://github.com/javagl/Obj
@@ -78,6 +83,8 @@ dependencies {
 
 apply plugin: 'com.google.ar.sceneform.plugin'
 apply plugin: 'kotlinx-serialization'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
 
 sceneform.asset('sampledata/saucepan.obj', 'default', 'sampledata/saucepan.sfa', 'src/main/res/raw/saucepan')
 sceneform.asset('sampledata/yen4.glb', 'default', 'sampledata/yen4.sfa', 'src/main/res/raw/yen')

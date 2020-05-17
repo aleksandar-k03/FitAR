@@ -146,6 +146,13 @@ using System.Runtime.Remoting;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 20 "D:\git\FitAr\core\FitAR\FitAR.Web\_Imports.razor"
+using FitAR.Sockets;
+
+#line default
+#line hidden
+#nullable disable
     public partial class _Menu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

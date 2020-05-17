@@ -23,7 +23,6 @@
 
 		@if (this.Client != null)
 		{
-
 			<div class="page-body">
 				<!--profile cover start-->
 				<div class="row">
@@ -109,6 +108,18 @@
 									<div class="card">
 										<div class="card-block card-block-text">
 											@((MarkupString)this.Client.additional)
+										</div>
+									</div>
+								}
+
+								@if (AndroidSocketManager.Current?.IsOnline(this.Client.username) == true)
+								{
+
+									<div class="card">
+										<div class="card-block card-block-text">
+											<strong>Корисник је тренутно онлине, пошаљите му поруку</strong> <br />
+											<input type="text" @bind="socketMessage"/>
+											<button @onclick="SendSocketMessage">Пошаљи</button>
 										</div>
 									</div>
 								}
@@ -204,6 +215,7 @@
 	ClientDM Client = null;
 	List<ClientSessionDM> Sessions = new List<ClientSessionDM>();
 	List<AnchorDM> Anchors = new List<AnchorDM>();
+	string socketMessage = "";
 
 
 	protected override async Task OnParametersSetAsync()
@@ -236,6 +248,17 @@
 		//		break;
 		//	}
 
+		this.StateHasChanged();
+	}
+
+	void SendSocketMessage()
+	{
+		AndroidSocketManager.Current.Send(FitAR.Sockets.Models.AndroidSocketMessage.Construct("text", "green", new FitAR.Sockets.Models.AndroidSocketTextMessage()
+		{
+			text = socketMessage
+		}));
+
+		socketMessage = "";
 		this.StateHasChanged();
 	}
 

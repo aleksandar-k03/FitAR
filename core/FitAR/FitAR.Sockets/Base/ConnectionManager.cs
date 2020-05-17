@@ -25,8 +25,14 @@ namespace FitAR.Sockets
 
     public string GetId(WebSocket socket)
     {
-      return _sockets.FirstOrDefault(p => p.Value == socket).Key;
+      foreach (var s in this._sockets)
+        if (s.Value == socket)
+          return s.Key;
+      return null;
     }
+    public WebSocket GetSocket(string id)
+      => this._sockets.ContainsKey(id) ? this._sockets[id] : null;
+
     public void AddSocket(string id, WebSocket socket)
     {
       _sockets.TryAdd(id, socket);

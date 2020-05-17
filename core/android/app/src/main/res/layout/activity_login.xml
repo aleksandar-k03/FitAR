@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -67,7 +68,7 @@
                 android:clickable="true"
                 android:layout_width="350dp"
                 android:layout_height="60dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/drawable_button_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -151,5 +152,6 @@
 
             android:textColor="#FFF" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

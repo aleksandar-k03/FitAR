@@ -60,21 +60,25 @@ class ActivityRegistration  : ActivityBase() {
         this.btn.onClickFun = onClickFun@{
 
             if(this.inputFirstName.text.isNullOrEmpty()){
+                btn.isLoading = false;
                 this.infoBox.setText("Нисте унијели Име!")
                 return@onClickFun
             }
 
             if(this.inputLastName.text.isNullOrEmpty()){
+                btn.isLoading = false;
                 this.infoBox.setText("Нисте унијели Презиме!")
                 return@onClickFun
             }
 
             if(this.inputUsername.text.isNullOrEmpty()){
+                btn.isLoading = false;
                 this.infoBox.setText("Морате унијети корисничко име")
                 return@onClickFun
             }
 
             if(this.inputPassword.text.isNullOrEmpty()){
+                btn.isLoading = false;
                 this.infoBox.setText("Морате унијети шифру!")
                 return@onClickFun
             }
@@ -84,6 +88,7 @@ class ActivityRegistration  : ActivityBase() {
                 this.inputFirstName.text.toString(), this.inputLastName.text.toString(),
                 this.inputPassword.text.toString(),
                 { registrationResponseModel ->
+                    btn.isLoading = false;
                     if(registrationResponseModel.hasError){
                         this.infoBox.setText(registrationResponseModel.errorMessage);
                         this.btn.finish();

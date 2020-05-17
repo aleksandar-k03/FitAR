@@ -28,6 +28,7 @@ import kotlin.math.*
 
 @RequiresApi(Build.VERSION_CODES.N) class ActivityMain2 : AppCompatActivity(), SensorEventListener {
 
+
     private lateinit var camera: Camera
     private lateinit var scene: Scene
     private var azimuth: Int = 0

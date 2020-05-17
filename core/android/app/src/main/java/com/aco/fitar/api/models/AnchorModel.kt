@@ -10,3 +10,10 @@ class AnchorModel(var sessionid:String, var anchorid:String, var lat:Double, var
 @Serializable
 class AnchorResponseModel : ModelResponseBase() {
 }
+
+@Serializable
+class AnchorResponse {
+    public var id:String = "";
+    public var username:String = "";
+    public var text:String = "";
+}

@@ -35,6 +35,12 @@ namespace FitAR.Sockets
       WebSocketConnectionManager.AddSocket(id, socket);
     }
 
+    public async Task ForceDisconnect(string id)
+    {
+      if (this.WebSocketConnectionManager.GetSocket(id) != null)
+        await this.OnDisconnected(this.WebSocketConnectionManager.GetSocket(id));
+    }
+
     public virtual async Task OnDisconnected(WebSocket socket)
     {
       this.NumberOfConnections--;

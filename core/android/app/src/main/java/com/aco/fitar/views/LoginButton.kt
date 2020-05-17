@@ -24,18 +24,22 @@ class LoginButton : ConstraintLayout {
     lateinit var btnText: TextView
     lateinit var btnProgress: ProgressBar
     private var isOpened = false;
+    public var isLoading:Boolean = false
 
     public fun init(){
         this.originalWidth = this.layoutParams.width
-        this.setCornerRadius(10)
+        //this.setCornerRadius(10)
 
         if(::btnProgress.isInitialized)
             this.btnProgress.alpha = 0f
 
         this.setOnClickListener({
+            if(isLoading)
+                return@setOnClickListener
             if(isOpened)
                 return@setOnClickListener;
 
+            isLoading = true;
             this.animation(false, {
                 this.isOpened = true;
                 if(::onClickFun.isInitialized)

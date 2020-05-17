@@ -16,4 +16,12 @@ namespace FitAR.Web.API.Models
   public class AnchorResponseModel : ModelBase
   {
   }
+
+  public class AnchorResponse
+  {
+    public string id { get; set; }
+    public string username { get; set; }
+    public string text { get; set; }
+  }
+
 }

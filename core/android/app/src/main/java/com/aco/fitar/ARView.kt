@@ -11,6 +11,9 @@ import org.w3c.dom.Text
 
 class ARView  {
 
+    public var defaultText:String ="[]";
+    public var defaultUsername:String=""
+
     public lateinit var anchor:Anchor
     public lateinit var anchorNode: AnchorNode
     public lateinit var cloudAnchor: CloudSpatialAnchor
@@ -18,28 +21,20 @@ class ARView  {
 
     private lateinit var arFragment: ArFragment
     private lateinit var usernameInfo:String;
-    private lateinit var profilePicInfo:String
-    private lateinit var noteTextInfo:String
 
     private lateinit var profileImg:ImageView
-    private lateinit var username:TextView
-    private lateinit var noteText:TextView
+    public lateinit var username:TextView
+    public lateinit var noteText:TextView
     public lateinit var statusImg:ImageView
     public lateinit var statusText:TextView
 
-    constructor(arFragment: ArFragment, username:String, profileImg:String, noteText:String, cloudAnchor:CloudSpatialAnchor) {
-        this.noteTextInfo = noteText;
-        this.construct(arFragment, username, profileImg, cloudAnchor);
+    constructor(arFragment: ArFragment, cloudAnchor:CloudSpatialAnchor) {
+        this.construct(arFragment, cloudAnchor);
     }
 
-    constructor(arFragment: ArFragment, username:String, profileImg:String, cloudAnchor:CloudSpatialAnchor){
-        this.construct(arFragment, username, profileImg, cloudAnchor);
-    }
 
-    private fun construct(arFragment: ArFragment, username:String, profileImg:String, cloudAnchor:CloudSpatialAnchor){
+    private fun construct(arFragment: ArFragment, cloudAnchor:CloudSpatialAnchor){
         this.arFragment = arFragment
-        this.usernameInfo = username;
-        this.profilePicInfo = profileImg;
 
         this.anchor = cloudAnchor.localAnchor;
         this.anchorNode = AnchorNode()
@@ -56,7 +51,10 @@ class ARView  {
             this.statusImg = it.view.findViewById(R.id.status_img)
             this.statusText = it.view.findViewById(R.id.status_text)
 
-            this.username.text = this.usernameInfo
+            if(this.defaultUsername.isEmpty())
+                this.defaultUsername = this.usernameInfo;
+            this.username.text = this.defaultUsername
+            this.noteText.text = this.defaultText
 
             this.anchorNode.renderable = it;
 

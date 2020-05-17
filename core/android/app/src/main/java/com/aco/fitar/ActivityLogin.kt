@@ -1,10 +1,13 @@
 package com.aco.fitar
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.BoringLayout
 import android.util.Log
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
@@ -15,10 +18,12 @@ import com.aco.fitar.core.ModelPreferencesManager
 import com.aco.fitar.views.LoginButton
 import com.aco.fitar.views.LoginInfo
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.android.synthetic.main.arimage.*
 
 
 class ActivityLogin : ActivityBase() {
 
+    private lateinit var logoImg: ImageView
     lateinit var inputUsername:TextInputEditText
     lateinit var inputPassword:TextInputEditText
     lateinit var box1:LinearLayout
@@ -33,6 +38,7 @@ class ActivityLogin : ActivityBase() {
         ApiManager.init(this);
 
         this.setContentView(R.layout.activity_login);
+        logoImg = this.findViewById(R.id.login_logo) as ImageView;
 
         this.inputUsername = this.findViewById(R.id.login_input_username)
         this.inputPassword = this.findViewById(R.id.login_input_password)
@@ -67,7 +73,7 @@ class ActivityLogin : ActivityBase() {
 
     override fun onStart() {
         Log.d("LOGIN", "onStart")
-        this.box1.animate().setStartDelay(250).alpha(1f).scaleX(1f).scaleY(1f).setInterpolator(AccelerateDecelerateInterpolator()).setDuration(600)
+        this.box1.animate().setStartDelay(50).alpha(1f).scaleX(1f).scaleY(1f).setInterpolator(AccelerateDecelerateInterpolator()).setDuration(600)
         super.onStart()
     }
 
@@ -82,27 +88,28 @@ class ActivityLogin : ActivityBase() {
     private fun btnFunc(){
         var activity = this;
         this.btn.onClickFun = onClickFun@{
-            Log.d("LOGIN", "tu smo")
 
             if(this.inputUsername.text.isNullOrEmpty()){
+                btn.isLoading = false;
                 this.infoBox.setText("Nema username")
                 Toast.makeText(activity, "Nema username", Toast.LENGTH_SHORT).show()
                 return@onClickFun
             }
 
             if(this.inputPassword.text.isNullOrEmpty()){
+                btn.isLoading = false;
                 this.infoBox.setText("Nema password")
                 Toast.makeText(activity, "Nema password", Toast.LENGTH_SHORT).show()
                 return@onClickFun
             }
 
             LoginController().call(this.inputUsername.text.toString(), this.inputPassword.text.toString(), { loginResponse ->
+                btn.isLoading = false;
                 if(loginResponse.hasError){
                     infoBox.setText(loginResponse.errorMessage);
                     btn.finish()
                     return@call;
                 }
-                btn.finish();
                 loginResponse.password = this.inputPassword.text.toString();
                 ModelPreferencesManager.put(loginResponse, "login");
                 this.navigateToMain()
@@ -111,6 +118,19 @@ class ActivityLogin : ActivityBase() {
     }
 
     private fun navigateToMain(){
+
+        var prefs = this.getSharedPreferences(ModelPreferencesManager.PREFERENCES_NAME, Context.MODE_PRIVATE);
+        var tutorialUsername:String = prefs.getString("tutorial_username", "")!!;
+
+        Toast.makeText(this, "loginFromPrefs=" + tutorialUsername + ", username=" + this.inputUsername.text.toString(), Toast.LENGTH_LONG).show()
+
+        if(tutorialUsername.equals(this.inputUsername.text.toString()) == false){
+            val intent = Intent(this, ActivityTutorial::class.java)
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, this.logoImg, "splash_logo" )
+            startActivity(intent, options.toBundle());
+            return;
+        }
+
         val intent = Intent(this, ActivityMain::class.java)
         startActivity(intent);
         this.finish()
@@ -130,7 +150,10 @@ class ActivityLogin : ActivityBase() {
     }
 
 
-
+    override fun onBackPressed() {
+        finish();
+        System.exit(0);
+    }
 
 
 }

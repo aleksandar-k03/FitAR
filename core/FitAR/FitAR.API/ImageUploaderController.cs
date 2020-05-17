@@ -1,4 +1,7 @@
-﻿using FitAR.Web.API.Models;
+﻿using Direct;
+using Direct.Fitardb.Models;
+using FitAR.Database;
+using FitAR.Web.API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.WindowsAzure.Storage;

@@ -4,22 +4,30 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.core.app.ActivityOptionsCompat
+import com.aco.fitar.api.ApiManager
 import com.aco.fitar.api.controllers.LoginController
 import com.aco.fitar.api.models.LoginModel
 import com.aco.fitar.api.models.LoginResponse
+import com.aco.fitar.core.ActivityBase
 import com.aco.fitar.core.ModelPreferencesManager
 
-class ActivitySplash : AppCompatActivity() {
+class ActivitySplash : ActivityBase() {
 
     private lateinit var logoImg:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        ApiManager.init(this)
 
         logoImg = this.findViewById(R.id.splash_logo) as ImageView;
+        var animation: Animation = AnimationUtils.loadAnimation(this, R.anim.button_animation);
+        logoImg.animation = animation;
+
         var loginInformations = ModelPreferencesManager.get<LoginResponse>("login");
 
         var a:LoginController = LoginController()
@@ -41,8 +49,11 @@ class ActivitySplash : AppCompatActivity() {
 
                     loginResponse.password = passwordCache;
                     ModelPreferencesManager.put(loginResponse, "login");
+
                     val intent = Intent(this, ActivityMain::class.java)
                     startActivity(intent);
+                    this.finish()
+
                 })
             }
 

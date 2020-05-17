@@ -450,3 +450,4 @@ D:\git\FitAr\core\FitAR\FitAR.Web\obj\Debug\netcoreapp3.1\FitAR.Web.genruntimeco
 D:\git\FitAr\core\FitAR\FitAR.Web\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
 D:\git\FitAR\core\FitAR\FitAR.Web\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Clients.razor.g.cs
 D:\git\FitAR\core\FitAR\FitAR.Web\obj\Debug\netcoreapp3.1\Razor\Pages\Clients.razor.g.cs
+D:\git\FitAr\core\FitAR\FitAR.Web\bin\Debug\netcoreapp3.1\wwwroot\docs\dokumentacija.docx
