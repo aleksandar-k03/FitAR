@@ -83,7 +83,10 @@
 					<div class="dropdown-primary dropdown">
 						<div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
 							<i class="feather icon-message-square"></i>
-							<span class="badge bg-c-green">@AndroidSocketManager.Current?.NumberOfConnections</span>
+							@if (AndroidSocketManager.Current != null && AndroidSocketManager.Current.NumberOfConnections != 0)
+							{
+								<span class="badge bg-c-green">@AndroidSocketManager.Current?.NumberOfConnections</span>
+							}
 						</div>
 					</div>
 				</li>

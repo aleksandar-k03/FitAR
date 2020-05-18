@@ -91,15 +91,17 @@ class ActivityLogin : ActivityBase() {
 
             if(this.inputUsername.text.isNullOrEmpty()){
                 btn.isLoading = false;
-                this.infoBox.setText("Nema username")
-                Toast.makeText(activity, "Nema username", Toast.LENGTH_SHORT).show()
+                this.infoBox.setText("Морате унијети корисничко име")
+                btn.finish()
+                //Toast.makeText(activity, "Nema username", Toast.LENGTH_SHORT).show()
                 return@onClickFun
             }
 
             if(this.inputPassword.text.isNullOrEmpty()){
                 btn.isLoading = false;
-                this.infoBox.setText("Nema password")
-                Toast.makeText(activity, "Nema password", Toast.LENGTH_SHORT).show()
+                this.infoBox.setText("Морате унијети шифру")
+                btn.finish()
+                //Toast.makeText(activity, "Nema password", Toast.LENGTH_SHORT).show()
                 return@onClickFun
             }
 

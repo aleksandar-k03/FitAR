@@ -62,18 +62,21 @@ class ActivityRegistration  : ActivityBase() {
             if(this.inputFirstName.text.isNullOrEmpty()){
                 btn.isLoading = false;
                 this.infoBox.setText("Нисте унијели Име!")
+                btn.finish()
                 return@onClickFun
             }
 
             if(this.inputLastName.text.isNullOrEmpty()){
                 btn.isLoading = false;
                 this.infoBox.setText("Нисте унијели Презиме!")
+                btn.finish()
                 return@onClickFun
             }
 
             if(this.inputUsername.text.isNullOrEmpty()){
                 btn.isLoading = false;
                 this.infoBox.setText("Морате унијети корисничко име")
+                btn.finish()
                 return@onClickFun
             }
 
