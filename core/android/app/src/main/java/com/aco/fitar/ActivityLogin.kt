@@ -124,7 +124,7 @@ class ActivityLogin : ActivityBase() {
         var prefs = this.getSharedPreferences(ModelPreferencesManager.PREFERENCES_NAME, Context.MODE_PRIVATE);
         var tutorialUsername:String = prefs.getString("tutorial_username", "")!!;
 
-        Toast.makeText(this, "loginFromPrefs=" + tutorialUsername + ", username=" + this.inputUsername.text.toString(), Toast.LENGTH_LONG).show()
+        //Toast.makeText(this, "loginFromPrefs=" + tutorialUsername + ", username=" + this.inputUsername.text.toString(), Toast.LENGTH_LONG).show()
 
         if(tutorialUsername.equals(this.inputUsername.text.toString()) == false){
             val intent = Intent(this, ActivityTutorial::class.java)

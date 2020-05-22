@@ -60,7 +60,12 @@ namespace FitAR.Sockets
           Function = DashboardModel.FunctionTypes.notifyInverse,
           RequireReload = true,
           Text = $"Korisnik '{this.AndroidSockets[id].client.username}' se ulogovao preko android aplikacije"
-        }); ;
+        });
+        AndroidSocketManager.Current.Send(FitAR.Sockets.Models.AndroidSocketMessage.Construct("text", "green", new FitAR.Sockets.Models.AndroidSocketTextMessage()
+        {
+          text = $"Korisnik '{this.AndroidSockets[id].client.username}' se ulogovao preko android aplikacije"
+        }));
+
       }
       else
         Console.WriteLine("Ne postoji socket sa id-em:" + this.ID(socket));
@@ -78,7 +83,11 @@ namespace FitAR.Sockets
           Function = DashboardModel.FunctionTypes.notifyInverse,
           RequireReload = true,
           Text = $"Korisnik '{this.AndroidSockets[this.ID(socket)].client.username}' je prekinuo sesiju preko android aplikacije"
-        }); ;
+        });
+        AndroidSocketManager.Current.Send(FitAR.Sockets.Models.AndroidSocketMessage.Construct("text", "green", new FitAR.Sockets.Models.AndroidSocketTextMessage()
+        {
+          text = $"Korisnik '{this.AndroidSockets[this.ID(socket)].client.username}' je prekinuo sesiju preko android aplikacije"
+        }));
       }
       this.AndroidSockets.Remove(this.ID(socket));
     }

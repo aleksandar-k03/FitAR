@@ -1,6 +1,8 @@
 package com.aco.fitar
 
+import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.google.ar.core.Anchor
 import com.google.ar.sceneform.AnchorNode
@@ -27,6 +29,8 @@ class ARView  {
     public lateinit var noteText:TextView
     public lateinit var statusImg:ImageView
     public lateinit var statusText:TextView
+    public var hideAdditionalInformations:Boolean = false
+    public lateinit var additionalInformationHolder:LinearLayout
 
     constructor(arFragment: ArFragment, cloudAnchor:CloudSpatialAnchor) {
         this.construct(arFragment, cloudAnchor);
@@ -50,6 +54,10 @@ class ARView  {
             this.noteText = it.view.findViewById(R.id.note_text)
             this.statusImg = it.view.findViewById(R.id.status_img)
             this.statusText = it.view.findViewById(R.id.status_text)
+            this.additionalInformationHolder = it.view.findViewById(R.id.arimage_additional)
+
+            if(this.hideAdditionalInformations)
+                this.additionalInformationHolder.visibility = View.GONE
 
             if(this.defaultUsername.isEmpty())
                 this.defaultUsername = this.usernameInfo;
@@ -78,6 +86,6 @@ class ARView  {
     public fun destroy(){
         this.anchorNode.renderable = null;
         this.arFragment.arSceneView.scene.removeChild(this.anchorNode);
-
     }
+
 }

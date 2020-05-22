@@ -253,6 +253,7 @@
 
 	void SendSocketMessage()
 	{
+		// TODO: ova metoda salje poruku svima, mora se ispraviti da salje samo specificnom profilu
 		AndroidSocketManager.Current.Send(FitAR.Sockets.Models.AndroidSocketMessage.Construct("text", "green", new FitAR.Sockets.Models.AndroidSocketTextMessage()
 		{
 			text = socketMessage

@@ -3,6 +3,8 @@ using Direct;
 using Direct.Fitardb.Models;
 using FitAR.Database;
 using FitAR.Sockets;
+using FitAR.Sockets.Dashboard.Models;
+using FitAR.Sockets.Models;
 using FitAR.Web.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,6 +42,8 @@ namespace FitAR.Web.API
         return response;
       }
 
+      ClientDM client = await db.Query<ClientDM>().Where("clientid={0}", session.clientid).LoadSingleAsync();
+
       AnchorDM anchor = new AnchorDM()
       {
         clientid = session.clientid,
@@ -50,6 +54,17 @@ namespace FitAR.Web.API
         lng = input.lng
       };
       await anchor.InsertAsync();
+
+      AndroidSocketManager.Current.Send(FitAR.Sockets.Models.AndroidSocketMessage.Construct("text", "green", new FitAR.Sockets.Models.AndroidSocketTextMessage()
+      {
+        text = $"Korisnik '{client.username}' je postavio poruku '{input.noteText}'."
+      }));
+      DashboardSocketHandler.Current?.SendToAll(new DashboardModel()
+      {
+        Function = DashboardModel.FunctionTypes.notifyInverse,
+        RequireReload = false,
+        Text = $"Korisnik '{client.username}' je postavio poruku '{input.noteText}'."
+      }); ;
 
       return response;
     }

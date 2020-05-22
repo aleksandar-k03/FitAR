@@ -41,7 +41,8 @@ class ActivityMainARManager(var context: ActivityMain) {
         AnchorController().getAll {
             Log.d("contol", "received -> " + it.toString() )
             this.anchorsFromDatabase = it;
-            context.runOnUiThread({ Toast.makeText(context, "Ucitani su idevi", Toast.LENGTH_LONG).show(); })
+            context.notifications.addNotification("Претходне поруке су учитане", NotificationType.green);
+            ////context.runOnUiThread({ Toast.makeText(context, "Ucitani su idevi", Toast.LENGTH_LONG).show(); })
 
             this.anchorsList = ArrayList()
             it.forEach { this.anchorsList.add(it.id) }
@@ -52,7 +53,7 @@ class ActivityMainARManager(var context: ActivityMain) {
             this.addAnchors()
         }
         this.azureScene.addLocateAnchorsCompletedListener({ event: LocateAnchorsCompletedEvent? ->
-            context.runOnUiThread({ Toast.makeText(context, "Anchor located ", Toast.LENGTH_LONG).show(); })
+            ////context.runOnUiThread({ Toast.makeText(context, "Anchor located ", Toast.LENGTH_LONG).show(); })
         })
         this.onSessionUpdate()
         this.addAnchorLocatedListener()
@@ -102,7 +103,8 @@ class ActivityMainARManager(var context: ActivityMain) {
         this.azureScene.start();
         var watcher:CloudSpatialAnchorWatcher = this.azureScene.startLocating(criteria)
 
-        context.runOnUiThread({ Toast.makeText(context, "Dodati su idevi", Toast.LENGTH_LONG).show(); })
+        context.notifications.addNotification("Скенирање започето са порукама са сервера", NotificationType.green)
+        ////context.runOnUiThread({ Toast.makeText(context, "Dodati su idevi", Toast.LENGTH_LONG).show(); })
         Log.d("Control", "added into watcher " + this.anchorsList.toString())
     }
 
@@ -137,13 +139,13 @@ class ActivityMainARManager(var context: ActivityMain) {
         this.azureScene.addAnchorLocatedListener(AnchorLocatedListener {
             context.runOnUiThread({
                 var identifier = it.identifier;
-                context.runOnUiThread({ Toast.makeText(context, "id:" + identifier, Toast.LENGTH_LONG).show(); })
+                //context.runOnUiThread({ Toast.makeText(context, "id:" + identifier, Toast.LENGTH_LONG).show(); })
                 when(it.status){
                     LocateAnchorStatus.Located -> {
                         context.runOnUiThread({
 
                             Log.d("Control", "Prepoznat ID " + identifier)
-                            context.runOnUiThread({ Toast.makeText(context, "Prepoznat id:" + identifier, Toast.LENGTH_LONG).show(); })
+                            //context.runOnUiThread({ Toast.makeText(context, "Prepoznat id:" + identifier, Toast.LENGTH_LONG).show(); })
 
                             // Get the note, which we stored as a property on the CloudSpatialAnchor.
                             val properties: Map<String, String> = it.anchor.getAppProperties()
@@ -164,18 +166,20 @@ class ActivityMainARManager(var context: ActivityMain) {
                             var anchorView = ARView(this.arFragment, azureAncor)
                             anchorView.defaultText = text
                             anchorView.defaultUsername = username
+                            anchorView.hideAdditionalInformations = true
+
                             anchorView.render()
                         });
                     }
                     LocateAnchorStatus.NotLocated -> {
-
-                        context.runOnUiThread({ Toast.makeText(context, "NotLocated:" + identifier, Toast.LENGTH_LONG).show(); })
+                        //context.runOnUiThread({ Toast.makeText(context, "NotLocated:" + identifier, Toast.LENGTH_LONG).show(); })
                     }
                     LocateAnchorStatus.AlreadyTracked -> {
-                        context.runOnUiThread({ Toast.makeText(context, "AlreadyTracked:" + identifier, Toast.LENGTH_LONG).show(); })
+                        //context.runOnUiThread({ Toast.makeText(context, "AlreadyTracked:" + identifier, Toast.LENGTH_LONG).show(); })
                     }
                     LocateAnchorStatus.NotLocatedAnchorDoesNotExist -> {
-                        context.runOnUiThread({ Toast.makeText(context, "NotLocatedAnchorDoesNotExist:" + identifier, Toast.LENGTH_LONG).show(); })}
+                        //context.runOnUiThread({ Toast.makeText(context, "NotLocatedAnchorDoesNotExist:" + identifier, Toast.LENGTH_LONG).show(); })
+                    }
                 }
             })
         })
@@ -231,14 +235,15 @@ class ActivityMainARManager(var context: ActivityMain) {
                     this.azureScene.uploadCloudAnchorAsync(azureAncor).thenAccept({
                         var anchorID = it;
                         Log.d("control", "anchor created: " + anchorID);
-                        context.runOnUiThread({ Toast.makeText(context, "Kreiran acnhro ID: " + anchorID, Toast.LENGTH_LONG).show(); })
+                        //context.runOnUiThread({ Toast.makeText(context, "Kreiran acnhro ID: " + anchorID, Toast.LENGTH_LONG).show(); })
                         SmartLocation.with(context).location().start {
                             Log.d("control", "location created: " +  it.toString());
                             var model = AnchorModel(context.loginInfo.session, anchorID, it.latitude, it.longitude, noteText);
                             AnchorController().call(model, {
                                 if(!it.hasError) return@call;
                                 context.runOnUiThread({
-                                    Toast.makeText(context, "Greska u postavljanju!: " + anchorID, Toast.LENGTH_LONG).show();
+                                    context.notifications.addNotification("Грешка у чувању поруке", NotificationType.red)
+                                    //Toast.makeText(context, "Greska u postavljanju!: " + anchorID, Toast.LENGTH_LONG).show();
                                     anchorBeingCreated.destroy();
                                 })
                             });

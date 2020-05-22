@@ -65,7 +65,11 @@ namespace FitAR.Web.API
       result.lastName = client.lastName;
       result.profilePic = client.profilePic;
 
-      this.Notify(Sockets.Dashboard.Models.DashboardModel.FunctionTypes.notifySuccess, $"Корисник '${client.username}' се улоговао!");
+      this.Notify(Sockets.Dashboard.Models.DashboardModel.FunctionTypes.notifySuccess, $"Korisnik '${client.username}' se ulogovao!");
+      AndroidSocketManager.Current.Send(FitAR.Sockets.Models.AndroidSocketMessage.Construct("text", "green", new FitAR.Sockets.Models.AndroidSocketTextMessage()
+      {
+        text = $"Korisnik '${client.username}' se ulogovao!"
+      }));
 
       return result;
     }
